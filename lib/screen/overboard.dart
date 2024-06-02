@@ -111,8 +111,8 @@ class _OverBoardState extends State<OverBoard> with TickerProviderStateMixin {
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: <Widget>[
                 Opacity(
-                  child: TextButton(
-                      style: ButtonStyle(
+                  child: TextlabelLarge(
+                      style: labelLargeStyle(
                         foregroundColor:
                             MaterialStateProperty.resolveWith<Color>(
                           (Set<MaterialState> states) => PRIMARY_COLOR,
@@ -167,8 +167,8 @@ class _OverBoardState extends State<OverBoard> with TickerProviderStateMixin {
                   )),
                 ),
                 (_counter < _total - 1
-                    ? TextButton(
-                        style: ButtonStyle(
+                    ? TextlabelLarge(
+                        style: labelLargeStyle(
                           foregroundColor:
                               MaterialStateProperty.resolveWith<Color>(
                             (Set<MaterialState> states) => PRIMARY_COLOR,
@@ -179,8 +179,8 @@ class _OverBoardState extends State<OverBoard> with TickerProviderStateMixin {
                           padding: const EdgeInsets.symmetric(horizontal: 16),
                           child: Text(widget.nextText ?? "NEXT"),
                         ))
-                    : TextButton(
-                        style: ButtonStyle(
+                    : TextlabelLarge(
+                        style: labelLargeStyle(
                           foregroundColor:
                               MaterialStateProperty.resolveWith<Color>(
                             (Set<MaterialState> states) => PRIMARY_COLOR,

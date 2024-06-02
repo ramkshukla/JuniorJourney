@@ -87,7 +87,7 @@ class _FruitSliderState extends State<FruitSlider> {
                               builder: (context) => AlphabetMain()),
                         );
 
-                        // Handle back button tap
+                        // Handle back labelLarge tap
                       },
                       child: Padding(
                         padding: const EdgeInsets.only(top: 5),

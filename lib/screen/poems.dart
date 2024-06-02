@@ -101,7 +101,7 @@ class _TtsPageState extends State<TtsPage> {
                         MaterialPageRoute(builder: (context) => PoemsMain()),
                       );
 
-                      // Handle back button tap
+                      // Handle back labelLarge tap
                     },
                     child: Image.asset(
                       'assets/images/back_btn.png',
@@ -134,7 +134,7 @@ class _TtsPageState extends State<TtsPage> {
                 alignment: Alignment.bottomRight,
                 child: Padding(
                   padding: EdgeInsets.only(bottom: 20, right: 50),
-                  child: ElevatedButton(
+                  child: ElevatedlabelLarge(
                     onPressed: _speak,
                     child: Text('Speak'),
                   ),

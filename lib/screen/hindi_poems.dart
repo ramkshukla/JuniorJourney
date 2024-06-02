@@ -96,7 +96,7 @@ class _TtsPageState extends State<TtsPage> {
                               builder: (context) => HindiPoemsMain()),
                         );
 
-                        // Handle back button tap
+                        // Handle back labelLarge tap
                       },
                       child: Image.asset(
                         'assets/images/back_btn.png',
@@ -113,7 +113,7 @@ class _TtsPageState extends State<TtsPage> {
                   child: Padding(
                     padding: EdgeInsets.only(
                         bottom: 20), // Adjust the padding as needed
-                    child: ElevatedButton(
+                    child: ElevatedlabelLarge(
                       onPressed: _speak,
                       child: Text('Speak'),
                     ),

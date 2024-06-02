@@ -139,7 +139,7 @@ class _MyHomePageState extends State<MyHomePage> {
                       MaterialPageRoute(builder: (context) => AlphabetMain()),
                     );
 
-                    // Handle back button tap
+                    // Handle back labelLarge tap
                   },
                   child: Image.asset(
                     'assets/images/back_btn.png',
@@ -159,14 +159,14 @@ class _MyHomePageState extends State<MyHomePage> {
                     children: [
                       Padding(
                         padding: EdgeInsets.only(right: 70, top: 50),
-                        child: ElevatedButton(
+                        child: ElevatedlabelLarge(
                           onPressed: onBackPressed,
                           child: Text('Back'),
                         ),
                       ),
                       Padding(
                         padding: EdgeInsets.only(left: 70, top: 50),
-                        child: ElevatedButton(
+                        child: ElevatedlabelLarge(
                           onPressed: onNextPressed,
                           child: Text('Next'),
                         ),

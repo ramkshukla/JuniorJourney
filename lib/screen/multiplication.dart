@@ -229,7 +229,7 @@ class _RabbitCountScreenState extends State<RabbitCountScreen>
           key: _textKey, // Pass the key to WidgetShowText
           showText: showTexts[_currentIndex],
         ),
-        //code for next and back button
+        //code for next and back labelLarge
         NextAndBackBtn(nextFunction: nextFunction, backFunction: backFunction)
       ]),
     );

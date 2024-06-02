@@ -93,7 +93,7 @@ class _VegetableSliderState extends State<AnimaleSlider> {
                               builder: (context) => AlphabetMain()),
                         );
 
-                        // Handle back button tap
+                        // Handle back labelLarge tap
                       },
                       child: Image.asset(
                         'assets/images/back_btn.png',

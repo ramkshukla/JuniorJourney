@@ -44,7 +44,7 @@ class _YourWidgetState extends State<YourWidget> {
               showText: texts[_currentIndex],
             ),
             SizedBox(height: 20),
-            ElevatedButton(
+            ElevatedlabelLarge(
               onPressed: _nextText,
               child: Text('Next'),
             ),

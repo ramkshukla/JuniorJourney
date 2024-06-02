@@ -119,7 +119,7 @@ class _MyHomePageState extends State<MyHomePage> {
                           MaterialPageRoute(builder: (context) => MathsMain()),
                         );
 
-                        // Handle back button tap
+                        // Handle back labelLarge tap
                       },
                       child: Image.asset(
                         'assets/images/back_btn.png',
@@ -251,7 +251,7 @@ class _MyHomePageState extends State<MyHomePage> {
                         endIndent: 10,
                       ),
                     ),
-                    //code for next and back button
+                    //code for next and back labelLarge
                     NextAndBackBtn(
                         nextFunction: nextFunction, backFunction: backFunction)
                   ],

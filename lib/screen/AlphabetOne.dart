@@ -36,7 +36,7 @@ class _DrawingPageState extends State<DrawingPage> {
         ),
         child: Stack(
           children: [
-            //   Back button
+            //   Back labelLarge
             Positioned(
               top: 10, // Adjust the top position as needed
               left: -15, // Adjust the left position as needed
@@ -47,7 +47,7 @@ class _DrawingPageState extends State<DrawingPage> {
                     MaterialPageRoute(builder: (context) => AlphabetMain()),
                   );
 
-                  // Handle back button tap
+                  // Handle back labelLarge tap
                 },
                 child: Container(
                   child: Image.asset(

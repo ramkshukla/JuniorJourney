@@ -106,7 +106,7 @@ class _MultiplicationTableState extends State<MultiplicationTable> {
                                 TablesMain(language: language)),
                       );
 
-                      // Handle back button tap
+                      // Handle back labelLarge tap
                     },
                     child: Image.asset(
                       'assets/images/back_btn.png',
@@ -130,8 +130,8 @@ class _MultiplicationTableState extends State<MultiplicationTable> {
                         fontWeight: FontWeight.bold),
                   ),
                   SizedBox(height: 20),
-                  ElevatedButton(
-                    style: ElevatedButton.styleFrom(
+                  ElevatedlabelLarge(
+                    style: ElevatedlabelLarge.styleFrom(
                       backgroundColor: Colors.greenAccent,
                       textStyle: const TextStyle(
                           color: Colors.white,
