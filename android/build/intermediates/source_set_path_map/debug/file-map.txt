@@ -1,0 +1,8 @@
+com.example.junior_journey-pngs-0 C:\Users\DELL\AndroidStudioProjects\junior_journey\android\build\generated\res\pngs\debug
+com.example.junior_journey-resValues-1 C:\Users\DELL\AndroidStudioProjects\junior_journey\android\build\generated\res\resValues\debug
+com.example.junior_journey-rs-2 C:\Users\DELL\AndroidStudioProjects\junior_journey\android\build\generated\res\rs\debug
+com.example.junior_journey-mergeDebugResources-3 C:\Users\DELL\AndroidStudioProjects\junior_journey\android\build\intermediates\incremental\debug\mergeDebugResources\merged.dir
+com.example.junior_journey-mergeDebugResources-4 C:\Users\DELL\AndroidStudioProjects\junior_journey\android\build\intermediates\incremental\debug\mergeDebugResources\stripped.dir
+com.example.junior_journey-merged_res-5 C:\Users\DELL\AndroidStudioProjects\junior_journey\android\build\intermediates\merged_res\debug
+com.example.junior_journey-debug-6 C:\Users\DELL\AndroidStudioProjects\junior_journey\android\src\debug\res
+com.example.junior_journey-main-7 C:\Users\DELL\AndroidStudioProjects\junior_journey\android\src\main\res
