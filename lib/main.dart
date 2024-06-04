@@ -14,9 +14,10 @@ void main() {
 }
 
 class MyApp extends StatelessWidget {
+  const MyApp({super.key});
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return const MaterialApp(
       debugShowCheckedModeBanner: false,
       home: BottomNavigationShop(),
     );
@@ -24,23 +25,23 @@ class MyApp extends StatelessWidget {
 }
 
 class BottomNavigationShop extends StatefulWidget {
-  BottomNavigationShop();
-  final List<BottomNav> itemsNav = <BottomNav>[
-    BottomNav('Home', Icons.home, null),
-    BottomNav('Account', Icons.person, null),
-    BottomNav('Settings', Icons.settings, null),
-    BottomNav('Share', Icons.share, null),
-  ];
+  const BottomNavigationShop({super.key});
 
   @override
   BottomNavigationIconRouteState createState() =>
-      new BottomNavigationIconRouteState();
+      BottomNavigationIconRouteState();
 }
 
 class BottomNavigationIconRouteState extends State<BottomNavigationShop>
     with SingleTickerProviderStateMixin {
   int currentIndex = 1;
   late BuildContext ctx;
+  final List<BottomNav> itemsNav = <BottomNav>[
+    BottomNav('Home', Icons.home, null),
+    BottomNav('Account', Icons.person, null),
+    BottomNav('Settings', Icons.settings, null),
+    BottomNav('Share', Icons.share, null),
+  ];
 
   void onBackPress() {
     if (Navigator.of(ctx).canPop()) {
@@ -59,29 +60,24 @@ class BottomNavigationIconRouteState extends State<BottomNavigationShop>
   }
 
   @override
-  void dispose() {
-    super.dispose();
-  }
-
-  @override
   Widget build(BuildContext context) {
     ctx = context;
 
     List<ShopCategory> listCategory = Dummy.getShoppingCategory();
     List<Widget> gridCategory = getGridViewCategory(listCategory);
-    return new Scaffold(
+    return Scaffold(
       backgroundColor: Colors.grey[200],
       appBar: AppBar(
         backgroundColor: MyColors.green_100_,
         systemOverlayStyle:
-            SystemUiOverlayStyle(statusBarBrightness: Brightness.dark),
-        title: new Text("Junior Journey"),
+            const SystemUiOverlayStyle(statusBarBrightness: Brightness.dark),
+        title: const Text("Junior Journey"),
       ),
       body: Container(
-        decoration: BoxDecoration(
+        decoration: const BoxDecoration(
           image: DecorationImage(
             image: AssetImage('assets/images/green_background.jpg'),
-            fit: BoxFit.cover, // Adjust the image to cover the whole screen
+            fit: BoxFit.cover,
           ),
         ),
         child: Column(
@@ -95,9 +91,7 @@ class BottomNavigationIconRouteState extends State<BottomNavigationShop>
                       children: <Widget>[
                         Container(
                           height: 200,
-                          decoration: new BoxDecoration(
-                            color: Colors.blue,
-                          ),
+                          decoration: const BoxDecoration(color: Colors.blue),
                           width: double.infinity,
                           child: Image.asset(
                             'assets/images/panda_.jpeg',
@@ -108,19 +102,11 @@ class BottomNavigationIconRouteState extends State<BottomNavigationShop>
                           color: Colors.black.withOpacity(0.4),
                           height: 200,
                           width: double.infinity,
-                          // child: Align(
-                          //   alignment: Alignment.center,
-                          //   child: Text("Browse Through Million of Products\nin Many Category", textAlign : TextAlign.center,
-                          //       style: MyText.medium(context).copyWith(
-                          //           color: Colors.white, fontWeight: FontWeight.bold
-                          //       )
-                          //   ),
-                          // ),
                         ),
                       ],
                     ),
                     Container(
-                      padding: EdgeInsets.symmetric(horizontal: 12),
+                      padding: const EdgeInsets.symmetric(horizontal: 12),
                       transform: Matrix4.translationValues(0.0, -30.0, 0.0),
                       child: Column(
                         children: gridCategory,
@@ -144,7 +130,7 @@ class BottomNavigationIconRouteState extends State<BottomNavigationShop>
             currentIndex = index;
           });
         },
-        items: widget.itemsNav.map((BottomNav d) {
+        items: itemsNav.map((BottomNav d) {
           return BottomNavigationBarItem(
             icon: Icon(d.icon),
             label: d.title,
@@ -200,12 +186,12 @@ class BottomNavigationIconRouteState extends State<BottomNavigationShop>
             child: Container(
               height: 120,
               alignment: Alignment.center,
-              padding: EdgeInsets.fromLTRB(10, 10, 10, 0),
+              padding: const EdgeInsets.fromLTRB(10, 10, 10, 0),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: <Widget>[
                   Container(
-                    padding: EdgeInsets.all(10),
+                    padding: const EdgeInsets.all(10),
                     child: Icon(s.icon, size: 40, color: Colors.grey[600]),
                   ),
                   Text(s.title,

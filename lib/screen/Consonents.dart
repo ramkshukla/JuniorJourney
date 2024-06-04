@@ -96,8 +96,8 @@ class _MyHomePageState extends State<MyHomePage> {
   ];
 
   int currentIndex = 1;
-  double height = 200; // Initial height
-  double width = 150; // Initial width
+  double height = 200;
+  double width = 150;
   Future<void> speak(String text) async {
     await flutterTts.setLanguage('hi-IN');
     await flutterTts.setSpeechRate(0.5);
@@ -119,7 +119,7 @@ class _MyHomePageState extends State<MyHomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Container(
-        decoration: BoxDecoration(
+        decoration: const BoxDecoration(
           image: DecorationImage(
             image: AssetImage(
                 'assets/images/green_board.jpg'), // Background image path
@@ -159,14 +159,14 @@ class _MyHomePageState extends State<MyHomePage> {
                     children: [
                       Padding(
                         padding: EdgeInsets.only(right: 70, top: 50),
-                        child: ElevatedlabelLarge(
+                        child: ElevatedButton(
                           onPressed: onBackPressed,
                           child: Text('Back'),
                         ),
                       ),
                       Padding(
                         padding: EdgeInsets.only(left: 70, top: 50),
-                        child: ElevatedlabelLarge(
+                        child: ElevatedButton(
                           onPressed: onNextPressed,
                           child: Text('Next'),
                         ),

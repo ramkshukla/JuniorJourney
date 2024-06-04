@@ -5,9 +5,11 @@ import 'package:junior_journey/screen/alphabet_main.dart';
 import 'package:junior_journey/screen/maths_main.dart';
 
 class HomeScreen extends StatelessWidget {
+  const HomeScreen({super.key});
+
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return const MaterialApp(
       debugShowCheckedModeBanner: false,
       home: Scaffold(
         body: AlphabetMainScreen(),
@@ -17,16 +19,16 @@ class HomeScreen extends StatelessWidget {
 }
 
 class AlphabetMainScreen extends StatefulWidget {
+  const AlphabetMainScreen({super.key});
+
   @override
-  _AlphabetMainScreenState createState() => _AlphabetMainScreenState();
+  AlphabetMainScreenState createState() => AlphabetMainScreenState();
 }
 
-class _AlphabetMainScreenState extends State<AlphabetMainScreen> {
+class AlphabetMainScreenState extends State<AlphabetMainScreen> {
   @override
   void initState() {
     super.initState();
-    // Start the automatic progression
-
     SystemChrome.setPreferredOrientations([
       DeviceOrientation.landscapeRight,
       DeviceOrientation.landscapeLeft,
@@ -49,10 +51,9 @@ class _AlphabetMainScreenState extends State<AlphabetMainScreen> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      decoration: BoxDecoration(
+      decoration: const BoxDecoration(
         image: DecorationImage(
-          image: AssetImage(
-              'assets/images/green_background.jpg'), // Background image path
+          image: AssetImage('assets/images/green_background.jpg'),
           fit: BoxFit.cover,
         ),
       ),
@@ -62,7 +63,7 @@ class _AlphabetMainScreenState extends State<AlphabetMainScreen> {
         itemBuilder: (BuildContext context, int index) {
           return Container(
             height: 210,
-            margin: EdgeInsets.only(top: 50, bottom: 50, left: 30),
+            margin: const EdgeInsets.only(top: 50, bottom: 50, left: 30),
             child: GestureDetector(
               onTap: () {
                 // Handle tap event for each card

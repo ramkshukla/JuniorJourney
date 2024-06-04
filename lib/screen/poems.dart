@@ -134,7 +134,7 @@ class _TtsPageState extends State<TtsPage> {
                 alignment: Alignment.bottomRight,
                 child: Padding(
                   padding: EdgeInsets.only(bottom: 20, right: 50),
-                  child: ElevatedlabelLarge(
+                  child: ElevatedButton(
                     onPressed: _speak,
                     child: Text('Speak'),
                   ),

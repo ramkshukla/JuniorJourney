@@ -124,14 +124,14 @@ class _MultiplicationTableState extends State<MultiplicationTable> {
                 children: [
                   Text(
                     '$index x $currentNumber = ${int.parse(index) * currentNumber}',
-                    style: TextStyle(
+                    style: const TextStyle(
                         fontSize: 80,
                         color: Colors.greenAccent,
                         fontWeight: FontWeight.bold),
                   ),
-                  SizedBox(height: 20),
-                  ElevatedlabelLarge(
-                    style: ElevatedlabelLarge.styleFrom(
+                  const SizedBox(height: 20),
+                  ElevatedButton(
+                    style: ElevatedButton.styleFrom(
                       backgroundColor: Colors.greenAccent,
                       textStyle: const TextStyle(
                           color: Colors.white,
