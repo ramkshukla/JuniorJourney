@@ -33,6 +33,8 @@ class MyApp extends StatelessWidget {
     // Add more courses as needed
   ];
 
+  MyApp({super.key});
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(

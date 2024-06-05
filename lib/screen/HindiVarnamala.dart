@@ -4,6 +4,8 @@ import 'package:flutter/services.dart';
 import 'package:junior_journey/screen/HindiMain.dart';
 
 class HindiVarnamala extends StatelessWidget {
+  const HindiVarnamala({super.key});
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(

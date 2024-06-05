@@ -6,7 +6,7 @@ import 'package:junior_journey/screen/tables_main.dart';
 class Tables extends StatelessWidget {
   final String index;
   final String language;
-  Tables({required this.index, required this.language});
+  const Tables({required this.index, required this.language, super.key});
   @override
   Widget build(BuildContext context) {
     return MaterialApp(

@@ -5,22 +5,23 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
 class Onboarding1Page extends StatefulWidget {
+  const Onboarding1Page({super.key});
+
   @override
   _Onboarding1PageState createState() => _Onboarding1PageState();
 }
 
 class _Onboarding1PageState extends State<Onboarding1Page> {
-  // create each page of onBoard here
   final _pageList = [
     PageModel(
-        color: Color.fromARGB(255, 230, 233, 238),
+        color: const Color.fromARGB(255, 230, 233, 238),
         imageAssetPath: 'assets/images/slide_img3.png',
         title: 'Dream Big with Career Choices!',
         body:
             '"Dream Big with Career Choices!" invites kids to explore diverse professions and envision their future paths through exciting learning adventures, inspiring them to aim high and pursue their passions.',
         doAnimateImage: true),
     PageModel(
-        color: Color.fromARGB(255, 230, 233, 238),
+        color: const Color.fromARGB(255, 230, 233, 238),
         // imageFromUrl: GLOBAL_URL + '/onboarding/cart.png',
         imageAssetPath: 'assets/images/slide_img1.png',
         title: 'Discover the Joy of Reading!',
@@ -61,7 +62,8 @@ class _Onboarding1PageState extends State<Onboarding1Page> {
   Widget build(BuildContext context) {
     return Scaffold(
         body: AnnotatedRegion<SystemUiOverlayStyle>(
-      value: SystemUiOverlayStyle(statusBarIconBrightness: Brightness.dark),
+      value:
+          const SystemUiOverlayStyle(statusBarIconBrightness: Brightness.dark),
       child: OverBoard(
         pages: _pageList,
         showBullets: true,
@@ -70,7 +72,7 @@ class _Onboarding1PageState extends State<Onboarding1Page> {
           //     msg: 'Click finish', toastLength: Toast.LENGTH_SHORT);
           Navigator.pushReplacement(
             context,
-            MaterialPageRoute(builder: (context) => HomeScreen()),
+            MaterialPageRoute(builder: (context) => const HomeScreen()),
           );
         },
       ),

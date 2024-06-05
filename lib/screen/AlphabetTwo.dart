@@ -1,18 +1,21 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:audioplayers/audioplayers.dart';
-import 'package:junior_journey/screen/alphabet_main.dart';
 
 class AlphabetTwo extends StatelessWidget {
+  const AlphabetTwo({super.key});
+
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return const MaterialApp(
       home: AlphabetScreen(),
     );
   }
 }
 
 class AlphabetScreen extends StatefulWidget {
+  const AlphabetScreen({super.key});
+
   @override
   _AlphabetScreenState createState() => _AlphabetScreenState();
 }

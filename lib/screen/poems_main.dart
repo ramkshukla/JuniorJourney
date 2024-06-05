@@ -4,6 +4,8 @@ import 'package:flutter/widgets.dart';
 import 'package:junior_journey/screen/poems.dart';
 
 class PoemsMain extends StatelessWidget {
+  const PoemsMain({super.key});
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(

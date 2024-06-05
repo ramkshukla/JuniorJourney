@@ -5,6 +5,8 @@ import 'package:flutter/services.dart';
 import 'package:junior_journey/screen/next_and_back_bnt.dart';
 
 class Multiplication extends StatelessWidget {
+  const Multiplication({super.key});
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(

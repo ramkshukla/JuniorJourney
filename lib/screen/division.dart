@@ -5,9 +5,11 @@ import 'package:junior_journey/screen/multiplication.dart';
 import 'package:junior_journey/screen/next_and_back_bnt.dart';
 
 class Devision extends StatelessWidget {
+  const Devision({super.key});
+
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return const MaterialApp(
       home: Scaffold(
         body: RabbitCountScreen(),
       ),
@@ -16,11 +18,13 @@ class Devision extends StatelessWidget {
 }
 
 class RabbitCountScreen extends StatefulWidget {
+  const RabbitCountScreen({super.key});
+
   @override
-  _RabbitCountScreenState createState() => _RabbitCountScreenState();
+  RabbitCountScreenState createState() => RabbitCountScreenState();
 }
 
-class _RabbitCountScreenState extends State<RabbitCountScreen>
+class RabbitCountScreenState extends State<RabbitCountScreen>
     with TickerProviderStateMixin {
   final GlobalKey _columnKey = GlobalKey();
 

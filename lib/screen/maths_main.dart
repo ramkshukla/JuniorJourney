@@ -8,6 +8,8 @@ import 'package:junior_journey/screen/number_display.dart';
 import 'package:junior_journey/screen/tables_main.dart';
 
 class MathsMain extends StatelessWidget {
+  const MathsMain({super.key});
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(

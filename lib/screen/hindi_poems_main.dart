@@ -3,6 +3,8 @@ import 'package:flutter/services.dart';
 import 'package:junior_journey/screen/hindi_poems.dart';
 
 class HindiPoemsMain extends StatelessWidget {
+  const HindiPoemsMain({super.key});
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(

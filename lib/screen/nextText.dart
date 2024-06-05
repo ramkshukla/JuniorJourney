@@ -8,6 +8,8 @@ void main() {
 }
 
 class YourWidget extends StatefulWidget {
+  const YourWidget({super.key});
+
   @override
   _YourWidgetState createState() => _YourWidgetState();
 }

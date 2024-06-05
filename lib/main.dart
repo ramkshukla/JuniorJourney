@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:junior_journey/NewPage.dart';
+import 'package:junior_journey/config/constant.dart';
 import 'package:junior_journey/data/dummy.dart';
 import 'package:junior_journey/data/my_colors.dart';
 import 'package:junior_journey/data/my_text.dart';
@@ -10,7 +11,8 @@ import 'package:junior_journey/screen/alphabet_main.dart';
 import 'package:junior_journey/screen/splash_screen.dart';
 
 void main() {
-  runApp(SplashScreen());
+  "Main Method is called".logIt;
+  runApp(const MyApp());
 }
 
 class MyApp extends StatelessWidget {
@@ -19,7 +21,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return const MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: BottomNavigationShop(),
+      home: MyHomePage(),
     );
   }
 }

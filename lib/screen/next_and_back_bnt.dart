@@ -4,7 +4,8 @@ class NextAndBackBtn extends StatelessWidget {
   final VoidCallback nextFunction;
   final VoidCallback backFunction;
 
-  NextAndBackBtn({required this.nextFunction, required this.backFunction});
+  const NextAndBackBtn(
+      {required this.nextFunction, required this.backFunction, super.key});
 
   @override
   Widget build(BuildContext context) {

@@ -6,7 +6,7 @@ import 'package:junior_journey/screen/poems_main.dart';
 
 class Poems extends StatelessWidget {
   final int index;
-  Poems({required this.index});
+  const Poems({required this.index, super.key});
   @override
   Widget build(BuildContext context) {
     return MaterialApp(

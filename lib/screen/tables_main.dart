@@ -4,7 +4,7 @@ import 'package:junior_journey/screen/tables.dart';
 
 class TablesMain extends StatelessWidget {
   final String language;
-  TablesMain({required this.language});
+  const TablesMain({required this.language, super.key});
   @override
   Widget build(BuildContext context) {
     return MaterialApp(

@@ -6,31 +6,25 @@ import 'package:junior_journey/screen/next_and_back_bnt.dart';
 
 class AdditionAndSubtraction extends StatelessWidget {
   final String operator;
-  AdditionAndSubtraction({required this.operator});
+  const AdditionAndSubtraction({required this.operator, super.key});
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
-      ),
-      home: MyHomePage(
-        operator: operator,
-      ),
+    return MyHomePage(
+      operator: operator,
     );
   }
 }
 
 class MyHomePage extends StatefulWidget {
   final String operator;
-  MyHomePage({required this.operator});
+  const MyHomePage({required this.operator, super.key});
   @override
-  _MyHomePageState createState() => _MyHomePageState(operator: operator);
+  MyHomePageState createState() => MyHomePageState();
 }
 
-class _MyHomePageState extends State<MyHomePage> {
-  final String operator;
-  _MyHomePageState({required this.operator});
+class MyHomePageState extends State<MyHomePage> {
+  // final String operator;
   FlutterTts flutterTts = FlutterTts();
   final GlobalKey _key = GlobalKey();
   late List<int> firstNumber;
@@ -64,7 +58,7 @@ class _MyHomePageState extends State<MyHomePage> {
       DeviceOrientation.landscapeLeft,
     ]);
     setState(() {
-      if (operator == 'Add') {
+      if (widget.operator == 'Add') {
         firstNumber = [1, 2, 4, 3, 4, 1, 5, 3];
         secondNumber = [2, 3, 3, 2, 2, 3, 2, 5];
         total = firstNumber[index] + secondNumber[index];
@@ -72,7 +66,7 @@ class _MyHomePageState extends State<MyHomePage> {
         operator_symbal = '+';
         visility_value = true;
         num = firstNumber[index];
-      } else if (operator == "Sub") {
+      } else if (widget.operator == "Sub") {
         firstNumber = [2, 3, 5, 3, 4, 6, 5, 7];
         secondNumber = [1, 1, 2, 2, 2, 3, 2, 3];
         operatorName = "minus";
@@ -88,14 +82,14 @@ class _MyHomePageState extends State<MyHomePage> {
 
   Future<void> speak() async {
     await flutterTts.speak(
-        '${firstNumber[index]} rabbit ${operatorName} ${secondNumber[index]} rabbit is equal to $total rabbit');
+        '${firstNumber[index]} rabbit $operatorName ${secondNumber[index]} rabbit is equal to $total rabbit');
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: Container(
-        decoration: BoxDecoration(
+        decoration: const BoxDecoration(
           image: DecorationImage(
             image: AssetImage(
                 'assets/images/green_board.jpg'), // Background image path
@@ -269,7 +263,7 @@ class _MyHomePageState extends State<MyHomePage> {
       if (index != 7) {
         index++;
 
-        if (operator == "Add") {
+        if (widget.operator == "Add") {
           total = firstNumber[index] + secondNumber[index];
           num = firstNumber[index];
         } else {
@@ -286,7 +280,7 @@ class _MyHomePageState extends State<MyHomePage> {
     setState(() {
       if (index != 0) {
         index--;
-        if (operator == "Add") {
+        if (widget.operator == "Add") {
           total = firstNumber[index] + secondNumber[index];
           num = firstNumber[index];
         } else {

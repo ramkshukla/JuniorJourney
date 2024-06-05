@@ -2,6 +2,7 @@
 this is constant pages
  */
 
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
 const String APP_NAME = 'DevKit';
@@ -34,3 +35,11 @@ const String SERVER_URL = 'https://ijtechnology.net/api_devkit';
 
 const String LOGIN_API = SERVER_URL + "/authentication/login";
 const String PRODUCT_API = SERVER_URL + "/example/getProduct";
+
+extension StringConstant on String {
+  void get logIt {
+    if (kDebugMode) {
+      print(this);
+    }
+  }
+}

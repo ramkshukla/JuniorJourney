@@ -8,6 +8,8 @@ import 'package:junior_journey/screen/tables_main.dart';
 import 'package:junior_journey/screen/hindi_poems_main.dart';
 
 class HindiMain extends StatelessWidget {
+  const HindiMain({super.key});
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(

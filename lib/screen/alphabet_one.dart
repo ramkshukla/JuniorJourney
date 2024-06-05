@@ -3,6 +3,8 @@ import 'package:flutter_tts/flutter_tts.dart';
 import 'package:junior_journey/screen/alphabet_main.dart';
 
 class AlphabetOne extends StatelessWidget {
+  const AlphabetOne({super.key});
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -13,6 +15,8 @@ class AlphabetOne extends StatelessWidget {
 }
 
 class DrawingPage extends StatefulWidget {
+  const DrawingPage({super.key});
+
   @override
   _DrawingPageState createState() => _DrawingPageState();
 }
@@ -76,7 +80,7 @@ class _DrawingPageState extends State<DrawingPage> {
                           onTap: () {
                             _speakAlphabet(
                               String.fromCharCode(index + 65),
-                            ); // Pronounce letter name
+                            );
                           },
                           child: CustomPaint(
                             painter: AlphabetPainter(
@@ -119,13 +123,9 @@ class AlphabetPainter extends CustomPainter {
 
   @override
   void paint(Canvas canvas, Size size) {
-    Paint paint = Paint()
-      ..color = isColored
-          ? Colors.blue
-          : Colors.white // Color alphabet based on state
+    Paint()
+      ..color = isColored ? Colors.blue : Colors.white
       ..style = PaintingStyle.fill;
-
-    // Draw alphabet shape here using canvas.drawPath or other methods
   }
 
   @override

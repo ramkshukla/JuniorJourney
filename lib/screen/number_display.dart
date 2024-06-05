@@ -3,7 +3,7 @@ import 'package:flutter_tts/flutter_tts.dart';
 
 class NumberDisplay extends StatelessWidget {
   final String language;
-  NumberDisplay({required this.language});
+  NumberDisplay({required this.language, super.key});
   @override
   Widget build(BuildContext context) {
     return MaterialApp(

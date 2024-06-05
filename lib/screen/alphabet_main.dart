@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:junior_journey/screen/AlphabetOne.dart';
+import 'package:junior_journey/screen/alphabet_one.dart';
 import 'package:junior_journey/screen/AlphabetTwo.dart';
 import 'package:junior_journey/screen/Consonents.dart';
 import 'package:junior_journey/screen/DaysOfWeek.dart';
@@ -12,18 +12,19 @@ import 'package:junior_journey/screen/fruits.dart';
 import 'package:junior_journey/screen/poems_main.dart';
 
 class AlphabetMain extends StatelessWidget {
+  const AlphabetMain({super.key});
+
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      home: Scaffold(
-        body: AlphabetMainScreen(),
-      ),
+    return const Scaffold(
+      body: AlphabetMainScreen(),
     );
   }
 }
 
 class AlphabetMainScreen extends StatefulWidget {
+  const AlphabetMainScreen({super.key});
+
   @override
   _AlphabetMainScreenState createState() => _AlphabetMainScreenState();
 }
@@ -56,7 +57,7 @@ class _AlphabetMainScreenState extends State<AlphabetMainScreen> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      decoration: BoxDecoration(
+      decoration: const BoxDecoration(
         image: DecorationImage(
           image: AssetImage(
               'assets/images/green_background.jpg'), // Background image path
@@ -68,7 +69,7 @@ class _AlphabetMainScreenState extends State<AlphabetMainScreen> {
         itemCount: images.length,
         itemBuilder: (BuildContext context, int index) {
           return Container(
-            margin: EdgeInsets.all(35),
+            margin: const EdgeInsets.all(35),
             child: GestureDetector(
               onTap: () {
                 // Handle tap event for each card

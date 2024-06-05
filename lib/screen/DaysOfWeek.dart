@@ -3,6 +3,8 @@ import 'package:flutter_tts/flutter_tts.dart';
 import 'package:flutter/services.dart';
 
 class DaysOfWeek extends StatelessWidget {
+  const DaysOfWeek({super.key});
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(

@@ -18,7 +18,7 @@ class OverBoard extends StatefulWidget {
   final OverBoardAnimator? animator;
   final String? skipText, nextText, finishText;
 
-  OverBoard(
+  const OverBoard(
       {Key? key,
       required this.pages,
       this.center,
@@ -32,10 +32,10 @@ class OverBoard extends StatefulWidget {
       : super(key: key);
 
   @override
-  _OverBoardState createState() => _OverBoardState();
+  OverBoardState createState() => OverBoardState();
 }
 
-class _OverBoardState extends State<OverBoard> with TickerProviderStateMixin {
+class OverBoardState extends State<OverBoard> with TickerProviderStateMixin {
   late OverBoardAnimator _animator;
 
   ScrollController _scrollController = new ScrollController();
@@ -44,14 +44,14 @@ class _OverBoardState extends State<OverBoard> with TickerProviderStateMixin {
   int _counter = 0, _last = 0;
   int _total = 0;
   double initial = 0, distance = 0;
-  Random random = new Random();
+  Random random = Random();
   SwipeDirection _swipeDirection = SwipeDirection.RIGHT_TO_LEFT;
 
   @override
   void initState() {
     super.initState();
 
-    _animator = new OverBoardAnimator(this);
+    _animator = OverBoardAnimator(this);
     _total = widget.pages.length;
     _animate();
   }

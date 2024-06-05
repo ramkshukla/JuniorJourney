@@ -5,7 +5,7 @@ import 'package:junior_journey/screen/hindi_poems_main.dart';
 
 class HindiPoems extends StatelessWidget {
   final int index;
-  HindiPoems({required this.index});
+  HindiPoems({required this.index, super.key});
   @override
   Widget build(BuildContext context) {
     return MaterialApp(

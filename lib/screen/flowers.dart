@@ -4,6 +4,8 @@ import 'package:flutter/services.dart';
 import 'package:junior_journey/screen/alphabet_main.dart';
 
 class FlowersSlider extends StatefulWidget {
+  const FlowersSlider({super.key});
+
   @override
   _FruitSliderState createState() => _FruitSliderState();
 }

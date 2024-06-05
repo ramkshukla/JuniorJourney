@@ -4,6 +4,8 @@ import 'package:flutter/services.dart';
 import 'package:junior_journey/screen/alphabet_main.dart';
 
 class Consonents extends StatelessWidget {
+  const Consonents({super.key});
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
