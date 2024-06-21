@@ -8,21 +8,16 @@ import Flutter
     didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?
   ) -> Bool {
       let controller : FlutterViewController = window?.rootViewController as! FlutterViewController
-      let usernameChannel = FlutterMethodChannel(name: "username",
+
+
+  let usernameChannel = FlutterMethodChannel(name: "username",
                                                     binaryMessenger: controller.binaryMessenger)
+
+
       let batteryLevelChannel = FlutterMethodChannel(name: "batteryLevel", binaryMessenger: controller.binaryMessenger)
 
 
-      usernameChannel.setMethodCallHandler({
-          [weak self]  (call: FlutterMethodCall, result: FlutterResult) -> Void in
-            
-          guard call.method == "getUserName" else{
-              result(FlutterMethodNotImplemented)
-                  return
-          }
-          self?.getUserName(result: result)
 
-          })
 
       batteryLevelChannel.setMethodCallHandler({
         [weak self] (call: FlutterMethodCall, result: FlutterResult) -> Void in
@@ -33,17 +28,29 @@ import Flutter
         }
 
         self?.getBatteryLevel(result: result)
-      })  
+      })
+      usernameChannel.setMethodCallHandler({
+          [weak self]  (call: FlutterMethodCall, result: FlutterResult) -> Void in
+            
+          guard call.method == "getUserName" else{
+              result(FlutterMethodNotImplemented)
+                  return
+          }
+          self?.getUserName(result: result)
+
+          })  
           
+
       GeneratedPluginRegistrant.register(with: self)
           return super.application(application, didFinishLaunchingWithOptions: launchOptions)
   }
-    
+
+
     private func getUserName(result: FlutterResult){
         result("ramkumarshukla00000@gmail.com")
     }
 
-
+    
     private func getBatteryLevel(result: FlutterResult){
         let device = UIDevice.current
         device.isBatteryMonitoringEnabled = true

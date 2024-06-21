@@ -22,17 +22,20 @@ dependencies:
   just_audio: ^0.9.37
   audio_session: ^0.1.19
   scrollable_list_tab_scroller: ^0.2.0
+  tutorial_coach_mark: ^1.2.11
   
   azlistview: 
     git: 
       url: https://github.com/ramkshukla/azlistview.git
       ref: master
-  firebase_core: ^2.30.0
-  otp_text_field: ^1.1.3
-  firebase_auth: ^4.19.2
-  cloud_firestore: ^4.17.0
-  firebase_storage: ^11.7.2
   
+  firebase_core: ^3.1.0
+  otp_text_field: ^1.1.3
+  firebase_auth: ^5.1.0
+  cloud_firestore: ^5.0.1
+  firebase_storage: ^12.0.1
+  firebase_analytics: ^11.0.1
+  firebase_crashlytics: ^4.0.1
 
 dev_dependencies:
   flutter_test:

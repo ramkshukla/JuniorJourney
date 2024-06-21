@@ -5,7 +5,7 @@
 	<key>CFBundleDevelopmentRegion</key>
 	<string>$(DEVELOPMENT_LANGUAGE)</string>
 	<key>CFBundleDisplayName</key>
-	<string>Stack Overflow</string>
+	<string>$(APP_DISPLAY_NAME)</string>
 	<key>CFBundleExecutable</key>
 	<string>$(EXECUTABLE_NAME)</string>
 	<key>CFBundleIdentifier</key>
@@ -45,17 +45,16 @@
 	<true/>
 	<key>UIApplicationSupportsIndirectInputEvents</key>
 	<true/>
-
 	<key>CFBundleURLTypes</key>
 	<array>
-    	<dict>
-        	<key>CFBundleTypeRole</key>
-        	<string>Editor</string>
-        	<key>CFBundleURLSchemes</key>
-        	<array>
-            	<string>app-1-732522482538-ios-f7d573cbf62d7920b8b313</string>
-        	</array>
-    	</dict>
+		<dict>
+			<key>CFBundleTypeRole</key>
+			<string>Editor</string>
+			<key>CFBundleURLSchemes</key>
+			<array>
+				<string>app-1-732522482538-ios-f7d573cbf62d7920b8b313</string>
+			</array>
+		</dict>
 	</array>
 </dict>
 </plist>

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:stack_overflow/_util/env_config.dart';
+import 'package:stack_overflow/_util/firebase_init.dart';
 import 'package:stack_overflow/module/brewary/view/brewary_view.dart';
 import 'package:stack_overflow/module/brewary/view/orient_view.dart';
 import 'package:stack_overflow/module/home/view/home_view.dart';
@@ -24,7 +25,11 @@ class MyHome extends StatelessWidget {
         child: Column(
           children: [
             ElevatedButton(
-              onPressed: () {
+              onPressed: () async {
+                FirebaseInit().firebaseAnalytics.logEvent(
+                  name: "page_tracked",
+                  parameters: {"page_names": "BrewaryPage "},
+                );
                 Navigator.push(
                   context,
                   MaterialPageRoute(
@@ -37,6 +42,10 @@ class MyHome extends StatelessWidget {
             const SizedBox(height: 8),
             ElevatedButton(
               onPressed: () {
+                FirebaseInit().firebaseAnalytics.logEvent(
+                  name: "page_tracked",
+                  parameters: {"page_names": "Orient View "},
+                );
                 Navigator.push(
                   context,
                   MaterialPageRoute(
@@ -49,6 +58,10 @@ class MyHome extends StatelessWidget {
             const SizedBox(height: 8),
             ElevatedButton(
               onPressed: () {
+                FirebaseInit().firebaseAnalytics.logEvent(
+                  name: "page_tracked",
+                  parameters: {"page_names": "Video Player"},
+                );
                 Navigator.push(
                   context,
                   MaterialPageRoute(
@@ -101,7 +114,12 @@ class MyHome extends StatelessWidget {
                     MaterialPageRoute(builder: (context) => Todo()),
                   );
                 },
-                child: Text("Firestore Tutorial"))
+                child: Text("Firestore Tutorial")),
+            ElevatedButton(
+                onPressed: () {
+                  Exception();
+                },
+                child: Text("Error"))
           ],
         ),
       ),

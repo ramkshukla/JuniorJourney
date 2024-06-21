@@ -4,6 +4,7 @@ import 'package:stack_overflow/_util/common_function.dart';
 import 'package:stack_overflow/module/home/controller/home_controller.dart';
 import 'package:stack_overflow/module/home/controller/home_event.dart';
 import 'package:stack_overflow/module/home/controller/home_state.dart';
+import 'package:stack_overflow/module/tut_coach.dart';
 import 'package:stack_overflow/my_app.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -120,25 +121,36 @@ class _HomeScreenState extends State<HomeScreen> with RouteAware {
             ),
 
             // Total Balance
-            Container(
-              margin: EdgeInsets.only(left: 20, bottom: 30, right: 20),
-              padding: EdgeInsets.symmetric(vertical: 15),
-              width: double.infinity,
-              decoration: BoxDecoration(
-                  color: Colors.blue, borderRadius: BorderRadius.circular(16)),
-              child: RichText(
-                textAlign: TextAlign.center,
-                text: TextSpan(
-                  children: [
-                    TextSpan(
-                      text: "Total balance\n",
-                      style: TextStyle(fontSize: 16),
-                    ),
-                    TextSpan(
-                      text: "200, 000 FCFA",
-                      style: TextStyle(fontSize: 22),
-                    )
-                  ],
+            GestureDetector(
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => MyTutorialCoach(),
+                  ),
+                );
+              },
+              child: Container(
+                margin: EdgeInsets.only(left: 20, bottom: 30, right: 20),
+                padding: EdgeInsets.symmetric(vertical: 15),
+                width: double.infinity,
+                decoration: BoxDecoration(
+                    color: Colors.blue,
+                    borderRadius: BorderRadius.circular(16)),
+                child: RichText(
+                  textAlign: TextAlign.center,
+                  text: TextSpan(
+                    children: [
+                      TextSpan(
+                        text: "Total balance\n",
+                        style: TextStyle(fontSize: 16),
+                      ),
+                      TextSpan(
+                        text: "200, 000 FCFA",
+                        style: TextStyle(fontSize: 22),
+                      )
+                    ],
+                  ),
                 ),
               ),
             ),

@@ -32,15 +32,6 @@ class _MethodChannelState extends State<MethodChannelUI> {
     methodChannel = "Not Initiated";
   }
 
-  Future<void> initUserNameMethodChannel() async {
-    String? name = await methodChannelName.invokeMethod<String>("getUserName");
-    if (name != null) {
-      setState(() {
-        methodChannel = name;
-      });
-    }
-  }
-
   Future<int> initGetBatteryLevel() async {
     try {
       int? value =
@@ -54,6 +45,15 @@ class _MethodChannelState extends State<MethodChannelUI> {
       batteryLevel = -1;
     }
     return batteryLevel!;
+  }
+
+  Future<void> initUserNameMethodChannel() async {
+    String? name = await methodChannelName.invokeMethod<String>("getUserName");
+    if (name != null) {
+      setState(() {
+        methodChannel = name;
+      });
+    }
   }
 
   Future<List<Object?>> getRingTones() async {
