@@ -6,7 +6,7 @@ class OverBoardAnimator {
   late Animation _animation;
 
   OverBoardAnimator(vsync) {
-    // this._vsync = vsync;
+    this._vsync = vsync;
     _controller = AnimationController(
       vsync: _vsync,
       duration: const Duration(milliseconds: 500),
