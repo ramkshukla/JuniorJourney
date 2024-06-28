@@ -1,8 +1,8 @@
 import 'package:firebase_analytics/firebase_analytics.dart';
 
-class FirebaseInit {
-  final FirebaseAnalytics firebaseAnalytics = FirebaseAnalytics.instance;
-  FirebaseInit() {
+class FirebaseAppInit {
+  FirebaseAnalytics firebaseAnalytics = FirebaseAnalytics.instance;
+  FirebaseAppInit() {
     firebaseAnalytics.setAnalyticsCollectionEnabled(true);
   }
 }

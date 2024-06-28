@@ -25,6 +25,7 @@ class PhoneAuthRepoImpl implements PhoneAuthRepo {
     "===== Phone Auth 1 ====>".logIt;
     try {
       await firebaseAuth.verifyPhoneNumber(
+
         phoneNumber: phoneNumber,
         timeout: Duration(seconds: 20),
         verificationCompleted: (credentials) =>

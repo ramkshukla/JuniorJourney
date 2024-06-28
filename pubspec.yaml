@@ -23,6 +23,12 @@ dependencies:
   audio_session: ^0.1.19
   scrollable_list_tab_scroller: ^0.2.0
   tutorial_coach_mark: ^1.2.11
+  internet_connection_checker_plus: ^2.4.2
+  mobile_scanner: ^5.1.1
+  hive: ^2.2.3
+  hive_flutter: ^1.1.0
+  http: ^1.2.1
+  get_it: ^7.7.0
   
   azlistview: 
     git: 
@@ -36,6 +42,7 @@ dependencies:
   firebase_storage: ^12.0.1
   firebase_analytics: ^11.0.1
   firebase_crashlytics: ^4.0.1
+  firebase_app_check: ^0.3.0+1
 
 dev_dependencies:
   flutter_test:

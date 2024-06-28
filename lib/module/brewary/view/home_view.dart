@@ -1,6 +1,7 @@
+import 'package:firebase_analytics/firebase_analytics.dart';
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
-import 'package:stack_overflow/_util/env_config.dart';
-import 'package:stack_overflow/_util/firebase_init.dart';
+import 'package:stack_overflow/_util/extensions.dart';
 import 'package:stack_overflow/module/brewary/view/brewary_view.dart';
 import 'package:stack_overflow/module/brewary/view/orient_view.dart';
 import 'package:stack_overflow/module/home/view/home_view.dart';
@@ -9,26 +10,50 @@ import 'package:stack_overflow/module/phone_auth/view/phone_auth_view.dart';
 import 'package:stack_overflow/module/todo/view/todo_view.dart';
 import 'package:stack_overflow/module/video_player/view/video_player.dart';
 
-class MyHome extends StatelessWidget {
+class MyHome extends StatefulWidget {
   const MyHome({super.key});
+
+  @override
+  State<MyHome> createState() => _MyHomeState();
+}
+
+class _MyHomeState extends State<MyHome> {
+  final FirebaseAnalytics firebaseAnalytics = FirebaseAnalytics.instance;
+
+  @override
+  void initState() {
+    firebaseAnalytics.setAnalyticsCollectionEnabled(true);
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.white,
+      drawer: Drawer(),
+      bottomSheet: Container(height: 100),
+      drawerDragStartBehavior: DragStartBehavior.down,
+      drawerEnableOpenDragGesture: true,
+      drawerEdgeDragWidth: 200,
+      drawerScrimColor: Colors.grey,
+      onDrawerChanged: (value) {
+        "Values : Called".logIt;
+      },
       appBar: AppBar(
-          title: Text(
-            "${uat.appTitle}",
-            style: TextStyle(fontSize: 16),
-          ),
-          centerTitle: true),
+        title: Text("Brewery Spot", style: TextStyle(fontSize: 16)),
+        centerTitle: true,
+      ),
       body: Center(
         child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
           children: [
             ElevatedButton(
               onPressed: () async {
-                FirebaseInit().firebaseAnalytics.logEvent(
+                FirebaseAnalytics.instance.logEvent(
                   name: "page_tracked",
-                  parameters: {"page_names": "BrewaryPage "},
+                  parameters: {
+                    "page_names": "BrewaryPage",
+                  },
                 );
                 Navigator.push(
                   context,
@@ -42,9 +67,9 @@ class MyHome extends StatelessWidget {
             const SizedBox(height: 8),
             ElevatedButton(
               onPressed: () {
-                FirebaseInit().firebaseAnalytics.logEvent(
+                FirebaseAnalytics.instance.logEvent(
                   name: "page_tracked",
-                  parameters: {"page_names": "Orient View "},
+                  parameters: {"page_names": "Orient View"},
                 );
                 Navigator.push(
                   context,
@@ -58,7 +83,7 @@ class MyHome extends StatelessWidget {
             const SizedBox(height: 8),
             ElevatedButton(
               onPressed: () {
-                FirebaseInit().firebaseAnalytics.logEvent(
+                FirebaseAnalytics.instance.logEvent(
                   name: "page_tracked",
                   parameters: {"page_names": "Video Player"},
                 );

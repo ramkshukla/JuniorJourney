@@ -4,6 +4,7 @@ import 'package:stack_overflow/_util/extensions.dart';
 import 'package:stack_overflow/module/brewary/controller/brewary_bloc.dart';
 import 'package:stack_overflow/module/brewary/controller/brewary_state.dart';
 import 'package:stack_overflow/module/brewary/controller/breway_event.dart';
+import 'package:stack_overflow/module/brewary/view/scanner_view.dart';
 
 class BrewaryUI extends StatelessWidget {
   const BrewaryUI({super.key});
@@ -17,8 +18,23 @@ class BrewaryUI extends StatelessWidget {
   }
 }
 
-class BrewaryView extends StatelessWidget {
+class BrewaryView extends StatefulWidget {
   const BrewaryView({super.key});
+
+  @override
+  State<BrewaryView> createState() => _BrewaryViewState();
+}
+
+class _BrewaryViewState extends State<BrewaryView> {
+  @override
+  void initState() {
+    super.initState();
+  }
+
+  @override
+  void dispose() {
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -88,7 +104,18 @@ class BrewaryView extends StatelessWidget {
                           );
                         },
                       ),
-                    )
+                    ),
+              ElevatedButton(
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => ScannerView(),
+                    ),
+                  );
+                },
+                child: Text("Scanner View"),
+              )
             ],
           ),
         );

@@ -1,17 +1,28 @@
 import 'dart:io';
 import 'dart:ui';
 
+import 'package:firebase_analytics/firebase_analytics.dart';
+import 'package:firebase_app_check/firebase_app_check.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:firebase_crashlytics/firebase_crashlytics.dart';
 import 'package:flutter/material.dart';
+import 'package:hive_flutter/hive_flutter.dart';
 import 'package:stack_overflow/_util/app_config.dart';
 import 'package:stack_overflow/_util/env_config.dart';
+import 'package:stack_overflow/_util/locator.dart';
 import 'package:stack_overflow/main.dart';
 
 Future<void> main() async {
-  EnvConfig uatConfiguration = uat;
-  AppConfig appConfig = AppConfig(child: MyApp(), envConfig: uatConfiguration);
   WidgetsFlutterBinding.ensureInitialized();
+  setupLocator();
+  EnvConfig uatConfiguration = uat;
+  await Hive.initFlutter();
+  await Hive.openBox("myBox");
+  AppConfig appConfig = AppConfig(
+    child: MyApp(),
+    envConfig: uatConfiguration,
+  );
+
   if (Platform.isAndroid) {
     await Firebase.initializeApp(
       name: "Brewary Spot ${uatConfiguration.flavor}",
@@ -22,8 +33,14 @@ Future<void> main() async {
         projectId: 'pushnotification-35175',
       ),
     );
+    await FirebaseAppCheck.instance.activate(
+      webProvider: ReCaptchaV3Provider('recaptcha-v3-site-key'),
+      androidProvider: AndroidProvider.playIntegrity,
+      appleProvider: AppleProvider.appAttest,
+    );
   } else if (Platform.isIOS) {
     await Firebase.initializeApp();
+    FirebaseAnalytics.instance.setAnalyticsCollectionEnabled(true);
   }
 
   FlutterError.onError = (errorDetails) {
@@ -33,5 +50,6 @@ Future<void> main() async {
     FirebaseCrashlytics.instance.recordError(error, stack, fatal: true);
     return true;
   };
+
   runApp(appConfig);
 }

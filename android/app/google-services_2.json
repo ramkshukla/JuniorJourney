@@ -1,0 +1,68 @@
+{
+  "project_info": {
+    "project_number": "732522482538",
+    "project_id": "pushnotification-35175",
+    "storage_bucket": "pushnotification-35175.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:732522482538:android:6ed309f46767b20ab8b313",
+        "android_client_info": {
+          "package_name": "com.example.push_notification"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "732522482538-gc5peui34jqd7v4hrev9vrc43j2m1g2k.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBSOT8xLKd3NaXyx1V99SHElvEbZ8mk-Is"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "732522482538-gc5peui34jqd7v4hrev9vrc43j2m1g2k.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:732522482538:android:6ed309f46767b20ab8b313",
+        "android_client_info": {
+          "package_name": "com.example.stack_overflow"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "732522482538-gc5peui34jqd7v4hrev9vrc43j2m1g2k.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBSOT8xLKd3NaXyx1V99SHElvEbZ8mk-Is"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "732522482538-gc5peui34jqd7v4hrev9vrc43j2m1g2k.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

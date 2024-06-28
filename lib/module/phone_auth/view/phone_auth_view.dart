@@ -52,6 +52,7 @@ class _PhoneAuthViewState extends State<PhoneAuthView> {
                                   key: key,
                                   controller: textEditingController,
                                   cursorHeight: 19,
+                                  maxLength: 10,
                                   keyboardType: TextInputType.phone,
                                   decoration: InputDecoration(
                                     border: OutlineInputBorder(

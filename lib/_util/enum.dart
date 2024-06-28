@@ -12,3 +12,9 @@ enum Flavor {
   uat,
   prod,
 }
+
+enum ConnectivityStatus {
+  Cellular,
+  WiFi,
+  Offline,
+}
