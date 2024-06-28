@@ -26,12 +26,12 @@ class RabbitCountScreen extends StatefulWidget {
 
 class RabbitCountScreenState extends State<RabbitCountScreen>
     with TickerProviderStateMixin {
-  final GlobalKey _columnKey = GlobalKey();
+  final GlobalKey columnKey = GlobalKey();
 
   int mangoes = 4;
   int _currentIndex = 0;
   late AnimationController _controller;
-  late Animation<double> _animation;
+  late Animation<double> animation;
   late FlutterTts flutterTts;
   bool isSpeaking = false;
   late List<String> texts1;
@@ -67,10 +67,10 @@ class RabbitCountScreenState extends State<RabbitCountScreen>
     texts1 = texts3;
     _controller = AnimationController(
       vsync: this,
-      duration: Duration(seconds: 0),
+      duration: const Duration(seconds: 0),
     );
 
-    _animation = Tween<double>(begin: 0, end: 1).animate(_controller);
+    animation = Tween<double>(begin: 0, end: 1).animate(_controller);
 
     flutterTts = FlutterTts();
     flutterTts.setLanguage('en-IN');
@@ -89,7 +89,7 @@ class RabbitCountScreenState extends State<RabbitCountScreen>
   Future<void> speakTexts() async {
     for (String text in texts1) {
       await speakText(text);
-      await Future.delayed(Duration(seconds: 2));
+      await Future.delayed(const Duration(seconds: 2));
     }
   }
 
@@ -130,14 +130,14 @@ class RabbitCountScreenState extends State<RabbitCountScreen>
   @override
   Widget build(BuildContext context) {
     return Container(
-      decoration: BoxDecoration(
+      decoration: const BoxDecoration(
         image: DecorationImage(
           image: AssetImage(
               'assets/images/green_board.jpg'), // Background image path
           fit: BoxFit.cover,
         ),
       ),
-      padding: EdgeInsets.all(20),
+      padding: const EdgeInsets.all(20),
       child: Column(mainAxisAlignment: MainAxisAlignment.center, children: [
         // First Row of Images
         Center(
@@ -149,7 +149,7 @@ class RabbitCountScreenState extends State<RabbitCountScreen>
             ],
           ),
         ),
-        SizedBox(height: 5),
+        const SizedBox(height: 5),
 
         // Second Row of Images
         Row(
@@ -159,7 +159,7 @@ class RabbitCountScreenState extends State<RabbitCountScreen>
               Image.asset('assets/images1/aa1.png', width: 90, height: 90)
           ],
         ),
-        SizedBox(height: 5),
+        const SizedBox(height: 5),
 
         // Third Row with Typewriter Animated Text
         WidgetShowText(
@@ -197,7 +197,6 @@ class RabbitCountScreenState extends State<RabbitCountScreen>
         _textKey = UniqueKey(); // Change the key to rebuild WidgetShowText
       }
     });
-    print("next function is called ");
   }
 
   void backFunction() {

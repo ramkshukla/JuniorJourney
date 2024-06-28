@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:flutter_tts/flutter_tts.dart';
 import 'package:flutter/services.dart';
 import 'package:junior_journey/screen/poems_main.dart';
@@ -17,7 +16,7 @@ class Poems extends StatelessWidget {
 
 class TtsPage extends StatefulWidget {
   final int index;
-  TtsPage({required this.index});
+  const TtsPage({super.key, required this.index});
   @override
   _TtsPageState createState() => _TtsPageState(index: index);
 }
@@ -82,7 +81,7 @@ class _TtsPageState extends State<TtsPage> {
         decoration: BoxDecoration(
           image: DecorationImage(
             image: AssetImage(
-                'assets/images2/${background}.jpg'), // Background image path
+                'assets/images2/$background.jpg'), // Background image path
             fit: BoxFit.cover,
           ),
         ),
@@ -98,7 +97,7 @@ class _TtsPageState extends State<TtsPage> {
                     onTap: () {
                       Navigator.push(
                         context,
-                        MaterialPageRoute(builder: (context) => PoemsMain()),
+                        MaterialPageRoute(builder: (context) => const PoemsMain()),
                       );
 
                       // Handle back labelLarge tap
@@ -120,7 +119,7 @@ class _TtsPageState extends State<TtsPage> {
                     visible: text_visibility,
                     child: Text(
                       poem,
-                      style: TextStyle(
+                      style: const TextStyle(
                           fontSize: 22,
                           fontWeight: FontWeight.w800,
                           color: Colors.white),
@@ -133,10 +132,10 @@ class _TtsPageState extends State<TtsPage> {
               child: Align(
                 alignment: Alignment.bottomRight,
                 child: Padding(
-                  padding: EdgeInsets.only(bottom: 20, right: 50),
+                  padding: const EdgeInsets.only(bottom: 20, right: 50),
                   child: ElevatedButton(
                     onPressed: _speak,
-                    child: Text('Speak'),
+                    child: const Text('Speak'),
                   ),
                 ),
               ),

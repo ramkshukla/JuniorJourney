@@ -7,7 +7,7 @@ class DaysOfWeek extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return const MaterialApp(
       home: Scaffold(
         body: DaysOfWeekScreen(),
       ),
@@ -16,6 +16,8 @@ class DaysOfWeek extends StatelessWidget {
 }
 
 class DaysOfWeekScreen extends StatefulWidget {
+  const DaysOfWeekScreen({super.key});
+
   @override
   _DaysOfWeekState createState() => _DaysOfWeekState();
 }
@@ -70,7 +72,7 @@ class _DaysOfWeekState extends State<DaysOfWeekScreen> {
         // Background image
 
         Container(
-          decoration: BoxDecoration(
+          decoration: const BoxDecoration(
             image: DecorationImage(
               image: AssetImage('assets/images/dayofweek.jpg'),
               fit: BoxFit.cover,

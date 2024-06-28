@@ -7,7 +7,7 @@ CachedNetworkImage buildCacheNetworkImage(
     return CachedNetworkImage(
       placeholder: (context, url) {
         return Container(
-          color: plColor == null ? Colors.grey[200] : plColor,
+          color: plColor ?? Colors.grey[200],
         );
       },
       errorWidget: (context, url, error) {
@@ -17,14 +17,14 @@ CachedNetworkImage buildCacheNetworkImage(
       },
       imageUrl: url,
       fit: BoxFit.cover,
-      color: imageColor == null ? null : imageColor,
+      color: imageColor,
     );
   } else if (height == 0) {
     return CachedNetworkImage(
       placeholder: (context, url) {
         return Container(
           width: width,
-          color: plColor == null ? Colors.grey[200] : plColor,
+          color: plColor ?? Colors.grey[200],
         );
       },
       errorWidget: (context, url, error) {
@@ -36,21 +36,21 @@ CachedNetworkImage buildCacheNetworkImage(
       imageUrl: url,
       fit: BoxFit.cover,
       width: width,
-      color: imageColor == null ? null : imageColor,
+      color: imageColor,
     );
   } else {
     return CachedNetworkImage(
       placeholder: (context, url) {
-        return SizedBox.shrink();
+        return const SizedBox.shrink();
       },
       errorWidget: (context, url, error) {
-        return SizedBox.shrink();
+        return const SizedBox.shrink();
       },
       imageUrl: url,
       fit: BoxFit.cover,
       width: width,
       height: height,
-      color: imageColor == null ? null : imageColor,
+      color: imageColor,
     );
   }
 }

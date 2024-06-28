@@ -1,3 +1,5 @@
+// ignore_for_file: non_constant_identifier_names
+
 import 'package:flutter/material.dart';
 import 'package:flutter_tts/flutter_tts.dart';
 import 'package:flutter/services.dart';
@@ -110,7 +112,8 @@ class MyHomePageState extends State<MyHomePage> {
                       onTap: () {
                         Navigator.push(
                           context,
-                          MaterialPageRoute(builder: (context) => MathsMain()),
+                          MaterialPageRoute(
+                              builder: (context) => const MathsMain()),
                         );
 
                         // Handle back labelLarge tap
@@ -129,7 +132,7 @@ class MyHomePageState extends State<MyHomePage> {
               child: Container(
                 width: 450,
                 height: 400,
-                margin: EdgeInsets.only(top: 30, left: 50),
+                margin: const EdgeInsets.only(top: 30, left: 50),
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.start,
                   children: [
@@ -139,16 +142,16 @@ class MyHomePageState extends State<MyHomePage> {
                         mainAxisAlignment: MainAxisAlignment.start,
                         children: [
                           Padding(
-                              padding: EdgeInsets.only(left: 35),
+                              padding: const EdgeInsets.only(left: 35),
                               child: Image.asset(
                                   'assets/images/${myMap[firstNumber[index]]}.png',
                                   height: 45,
                                   width: 45)),
-                          SizedBox(width: 10),
+                          const SizedBox(width: 10),
                           for (int i = 1; i <= firstNumber[index]; i++)
                             Image.asset('assets/images1/kha1.png',
                                 height: 50, width: 50),
-                          SizedBox(width: 10),
+                          const SizedBox(width: 10),
                         ],
                       ),
                     ),
@@ -157,30 +160,30 @@ class MyHomePageState extends State<MyHomePage> {
                       key: _key,
                       children: [
                         Text(
-                          '${operator_symbal}',
-                          style: TextStyle(
+                          operator_symbal,
+                          style: const TextStyle(
                               fontSize: 50,
                               color: Color.fromRGBO(164, 5, 5, 1),
                               fontWeight: FontWeight.bold),
                         ),
 
-                        SizedBox(width: 10),
+                        const SizedBox(width: 10),
                         Padding(
-                            padding: EdgeInsets.only(right: 8),
+                            padding: const EdgeInsets.only(right: 8),
                             child: Image.asset(
                                 'assets/images/${myMap[secondNumber[index]]}.png',
                                 height: 45,
                                 width: 45)),
-                        SizedBox(width: 10),
+                        const SizedBox(width: 10),
                         for (int i = 1; i <= secondNumber[index]; i++)
                           Image.asset('assets/images1/kha1.png',
                               height: 50, width: 50),
-                        SizedBox(width: 10),
+                        const SizedBox(width: 10),
                         //
                       ],
                     ),
-                    Padding(
-                      padding: const EdgeInsets.only(right: 70),
+                    const Padding(
+                      padding: EdgeInsets.only(right: 70),
                       child: Divider(
                         height: 20,
                         color: Colors.grey,
@@ -189,7 +192,7 @@ class MyHomePageState extends State<MyHomePage> {
                         endIndent: 10,
                       ),
                     ),
-                    SizedBox(height: 5),
+                    const SizedBox(height: 5),
                     Row(
                       mainAxisAlignment: MainAxisAlignment.start,
                       crossAxisAlignment: CrossAxisAlignment.center,
@@ -235,8 +238,8 @@ class MyHomePageState extends State<MyHomePage> {
                         ),
                       ],
                     ),
-                    Padding(
-                      padding: const EdgeInsets.only(right: 70),
+                    const Padding(
+                      padding: EdgeInsets.only(right: 70),
                       child: Divider(
                         height: 10,
                         color: Colors.grey,

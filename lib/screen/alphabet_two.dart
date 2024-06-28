@@ -17,10 +17,10 @@ class AlphabetScreen extends StatefulWidget {
   const AlphabetScreen({super.key});
 
   @override
-  _AlphabetScreenState createState() => _AlphabetScreenState();
+  AlphabetScreenState createState() => AlphabetScreenState();
 }
 
-class _AlphabetScreenState extends State<AlphabetScreen> {
+class AlphabetScreenState extends State<AlphabetScreen> {
   final List<String> alphabets = [
     'A',
     'B',
@@ -67,7 +67,7 @@ class _AlphabetScreenState extends State<AlphabetScreen> {
     Size screenSize = MediaQuery.of(context).size;
     return Scaffold(
       body: Container(
-        decoration: BoxDecoration(
+        decoration: const BoxDecoration(
           image: DecorationImage(
             image: AssetImage(
                 'assets/images/green_board.jpg'), // Background image path
@@ -100,7 +100,7 @@ class _AlphabetScreenState extends State<AlphabetScreen> {
   }
 
   void _playAudio(String alphabet) async {
-    String audioPath = 'audio/${alphabet}.mp3';
+    String audioPath = 'audio/$alphabet.mp3';
     // await audioPlayer.play(AssetSource(audioPath));
     AudioPlayer audioPlayer = AudioPlayer();
     await audioPlayer.play(AssetSource(audioPath));
@@ -113,14 +113,14 @@ class _AlphabetScreenState extends State<AlphabetScreen> {
 
   void _startAutomaticProgression() {
     // Start the automatic progression
-    Future.delayed(Duration(seconds: 4), () {
+    Future.delayed(const Duration(seconds: 4), () {
       setState(() {
         isTapped = true;
       });
 
       _playAudio(alphabets[currentIndex]);
 
-      Future.delayed(Duration(seconds: 4), () {
+      Future.delayed(const Duration(seconds: 4), () {
         setState(() {
           currentIndex = (currentIndex + 1) % alphabets.length;
           isTapped = false;

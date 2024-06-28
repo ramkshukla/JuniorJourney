@@ -7,7 +7,7 @@ class HindiPoemsMain extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return const MaterialApp(
       debugShowCheckedModeBanner: false,
       home: Scaffold(
         body: PoemsMainScreen(),
@@ -17,6 +17,8 @@ class HindiPoemsMain extends StatelessWidget {
 }
 
 class PoemsMainScreen extends StatefulWidget {
+  const PoemsMainScreen({super.key});
+
   @override
   _PoemsMainScreenState createState() => _PoemsMainScreenState();
 }
@@ -58,7 +60,7 @@ class _PoemsMainScreenState extends State<PoemsMainScreen> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      decoration: BoxDecoration(
+      decoration: const BoxDecoration(
         image: DecorationImage(
           image: AssetImage(
               'assets/images/green_background.jpg'), // Background image path
@@ -71,9 +73,9 @@ class _PoemsMainScreenState extends State<PoemsMainScreen> {
         itemBuilder: (BuildContext context, int index) {
           return Center(
             child: Container(
-              margin: EdgeInsets.all(35),
+              margin: const EdgeInsets.all(35),
               child: Padding(
-                padding: EdgeInsets.all(8.0),
+                padding: const EdgeInsets.all(8.0),
                 child: GestureDetector(
                   onTap: () {
                     // Handle tap event for each card
@@ -97,7 +99,7 @@ class _PoemsMainScreenState extends State<PoemsMainScreen> {
                           ),
                           Text(
                             items[index],
-                            style: TextStyle(color: Colors.grey, fontSize: 18),
+                            style: const TextStyle(color: Colors.grey, fontSize: 18),
                           )
                         ],
                       ),

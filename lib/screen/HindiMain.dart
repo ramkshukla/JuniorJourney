@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:flutter/widgets.dart';
 import 'package:junior_journey/screen/HindiVarnamala.dart';
 import 'package:junior_journey/screen/HindiVowel.dart';
 import 'package:junior_journey/screen/number_display.dart';
@@ -12,7 +11,7 @@ class HindiMain extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return const MaterialApp(
       debugShowCheckedModeBanner: false,
       home: Scaffold(
         body: HindiMainScreen(),
@@ -22,6 +21,8 @@ class HindiMain extends StatelessWidget {
 }
 
 class HindiMainScreen extends StatefulWidget {
+  const HindiMainScreen({super.key});
+
   @override
   _MathsMainScreenState createState() => _MathsMainScreenState();
 }
@@ -55,7 +56,7 @@ class _MathsMainScreenState extends State<HindiMainScreen> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      decoration: BoxDecoration(
+      decoration: const BoxDecoration(
         image: DecorationImage(
           image: AssetImage(
               'assets/images/green_background.jpg'), // Background image path
@@ -68,9 +69,9 @@ class _MathsMainScreenState extends State<HindiMainScreen> {
         itemBuilder: (BuildContext context, int index) {
           return Center(
             child: Container(
-              margin: EdgeInsets.only(top: 50, bottom: 50, left: 20),
+              margin: const EdgeInsets.only(top: 50, bottom: 50, left: 20),
               child: Padding(
-                padding: EdgeInsets.all(8.0),
+                padding: const EdgeInsets.all(8.0),
                 child: GestureDetector(
                   onTap: () {
                     // Handle tap event for each card
@@ -78,18 +79,18 @@ class _MathsMainScreenState extends State<HindiMainScreen> {
                       Navigator.push(
                         context,
                         MaterialPageRoute(
-                            builder: (context) => HindiVarnamala()),
+                            builder: (context) => const HindiVarnamala()),
                       );
                     } else if (index == 1) {
                       Navigator.push(
                         context,
-                        MaterialPageRoute(builder: (context) => HindiVowel()),
+                        MaterialPageRoute(builder: (context) => const HindiVowel()),
                       );
                     } else if (index == 2) {
                       Navigator.push(
                         context,
                         MaterialPageRoute(
-                            builder: (context) => NumberDisplay(
+                            builder: (context) => const NumberDisplay(
                                   language: "hi",
                                 )),
                       );
@@ -97,7 +98,7 @@ class _MathsMainScreenState extends State<HindiMainScreen> {
                       Navigator.push(
                         context,
                         MaterialPageRoute(
-                            builder: (context) => TablesMain(
+                            builder: (context) => const TablesMain(
                                   language: 'hi',
                                 )),
                       );
@@ -105,7 +106,7 @@ class _MathsMainScreenState extends State<HindiMainScreen> {
                       Navigator.push(
                         context,
                         MaterialPageRoute(
-                            builder: (context) => HindiPoemsMain()),
+                            builder: (context) => const HindiPoemsMain()),
                       );
                     }
                   },
@@ -117,7 +118,7 @@ class _MathsMainScreenState extends State<HindiMainScreen> {
                       children: [
                         ClipRRect(
                           clipBehavior: Clip.hardEdge,
-                          borderRadius: BorderRadius.all(Radius.circular(20)),
+                          borderRadius: const BorderRadius.all(Radius.circular(20)),
                           child: Material(
                             elevation: 10,
                             shadowColor: Colors.amber,

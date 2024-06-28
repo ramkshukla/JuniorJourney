@@ -21,20 +21,21 @@ class Tables extends StatelessWidget {
 class MultiplicationTable extends StatefulWidget {
   final String index;
   final String language;
-  MultiplicationTable({required this.index, required this.language});
+  const MultiplicationTable(
+      {super.key, required this.index, required this.language});
   @override
-  _MultiplicationTableState createState() =>
-      _MultiplicationTableState(index: index, language: language);
+  MultiplicationTableState createState() =>
+      MultiplicationTableState(index: index, language: language);
 }
 
-class _MultiplicationTableState extends State<MultiplicationTable> {
+class MultiplicationTableState extends State<MultiplicationTable> {
   final String index;
   final String language;
-  _MultiplicationTableState({required this.index, required this.language});
+  MultiplicationTableState({required this.index, required this.language});
   final FlutterTts flutterTts = FlutterTts();
   int currentNumber = 1;
   bool setLanguage = false;
-  late List<String> tab_index;
+  late List<String> tabIndex;
 
   @override
   void initState() {
@@ -46,7 +47,7 @@ class _MultiplicationTableState extends State<MultiplicationTable> {
     ]);
     setState(() {
       if (language == "en") {
-        tab_index = [
+        tabIndex = [
           'zero',
           'onza',
           'twuza',
@@ -60,7 +61,7 @@ class _MultiplicationTableState extends State<MultiplicationTable> {
           'tenza'
         ];
       } else {
-        tab_index = [
+        tabIndex = [
           'शून्य',
           'एक्कम',
           'डुनी',
@@ -82,7 +83,7 @@ class _MultiplicationTableState extends State<MultiplicationTable> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Container(
-        decoration: BoxDecoration(
+        decoration: const BoxDecoration(
           image: DecorationImage(
             image: AssetImage(
                 'assets/images/green_board.jpg'), // Background image path
@@ -140,14 +141,15 @@ class _MultiplicationTableState extends State<MultiplicationTable> {
                     ),
                     onPressed: () {
                       setState(() {
-                        if (currentNumber < 10)
+                        if (currentNumber < 10) {
                           currentNumber++;
-                        else
+                        } else {
                           currentNumber = 1;
+                        }
                       });
                       _speakNumber((int.parse(index) * currentNumber), index);
                     },
-                    child: Text('Next'),
+                    child: const Text('Next'),
                   ),
                 ],
               ),
@@ -174,7 +176,7 @@ class _MultiplicationTableState extends State<MultiplicationTable> {
     }
 
     if (currentNumber < 11) {
-      await flutterTts.speak('$index ${tab_index[currentNumber]} $total');
+      await flutterTts.speak('$index ${tabIndex[currentNumber]} $total');
     } else {
       currentNumber = 1;
       _speakNumber((int.parse(index) * currentNumber), index);

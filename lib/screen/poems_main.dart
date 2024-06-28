@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:flutter/widgets.dart';
 import 'package:junior_journey/screen/poems.dart';
 
 class PoemsMain extends StatelessWidget {
@@ -8,7 +7,7 @@ class PoemsMain extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return const MaterialApp(
       debugShowCheckedModeBanner: false,
       home: Scaffold(
         body: PoemsMainScreen(),
@@ -18,6 +17,8 @@ class PoemsMain extends StatelessWidget {
 }
 
 class PoemsMainScreen extends StatefulWidget {
+  const PoemsMainScreen({super.key});
+
   @override
   _PoemsMainScreenState createState() => _PoemsMainScreenState();
 }
@@ -59,7 +60,7 @@ class _PoemsMainScreenState extends State<PoemsMainScreen> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      decoration: BoxDecoration(
+      decoration: const BoxDecoration(
         image: DecorationImage(
           image: AssetImage(
               'assets/images/green_background.jpg'), // Background image path
@@ -72,9 +73,9 @@ class _PoemsMainScreenState extends State<PoemsMainScreen> {
         itemBuilder: (BuildContext context, int index) {
           return Center(
             child: Container(
-              margin: EdgeInsets.all(40),
+              margin: const EdgeInsets.all(40),
               child: Padding(
-                padding: EdgeInsets.all(8.0),
+                padding: const EdgeInsets.all(8.0),
                 child: GestureDetector(
                   onTap: () {
                     // Handle tap event for each card
@@ -93,7 +94,7 @@ class _PoemsMainScreenState extends State<PoemsMainScreen> {
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
                           ClipRRect(
-                            borderRadius: BorderRadius.all(Radius.circular(15)),
+                            borderRadius: const BorderRadius.all(Radius.circular(15)),
                             child: Image.asset(
                               'assets/images2/${images[index]}.png', // Assuming images are named as 1.jpg, 2.jpg, etc.
                               height: 180,
@@ -102,7 +103,7 @@ class _PoemsMainScreenState extends State<PoemsMainScreen> {
                           ),
                           Text(
                             items[index],
-                            style: TextStyle(color: Colors.grey, fontSize: 18),
+                            style: const TextStyle(color: Colors.grey, fontSize: 18),
                           )
                         ],
                       ),

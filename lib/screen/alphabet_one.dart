@@ -7,7 +7,7 @@ class AlphabetOne extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return const MaterialApp(
       debugShowCheckedModeBanner: false,
       home: DrawingPage(),
     );
@@ -18,10 +18,10 @@ class DrawingPage extends StatefulWidget {
   const DrawingPage({super.key});
 
   @override
-  _DrawingPageState createState() => _DrawingPageState();
+  DrawingPageState createState() => DrawingPageState();
 }
 
-class _DrawingPageState extends State<DrawingPage> {
+class DrawingPageState extends State<DrawingPage> {
   final FlutterTts flutterTts = FlutterTts(); // TTS plugin instance
   List<bool> isAlphabetColored =
       List.generate(26, (index) => false); // Track colored alphabets
@@ -31,7 +31,7 @@ class _DrawingPageState extends State<DrawingPage> {
     return Scaffold(
         body: Center(
       child: Container(
-        decoration: BoxDecoration(
+        decoration: const BoxDecoration(
           image: DecorationImage(
             image: AssetImage(
                 'assets/images/green_background.jpg'), // Background image path
@@ -48,21 +48,20 @@ class _DrawingPageState extends State<DrawingPage> {
                 onTap: () {
                   Navigator.push(
                     context,
-                    MaterialPageRoute(builder: (context) => AlphabetMain()),
+                    MaterialPageRoute(
+                        builder: (context) => const AlphabetMain()),
                   );
 
                   // Handle back labelLarge tap
                 },
-                child: Container(
-                  child: Image.asset(
-                    'assets/images/back_btn.png',
-                    height: 50,
-                    width: 120,
-                  ),
+                child: Image.asset(
+                  'assets/images/back_btn.png',
+                  height: 50,
+                  width: 120,
                 ),
               ),
             ),
-            SizedBox(
+            const SizedBox(
               height: 10,
             ),
             Padding(
@@ -71,7 +70,8 @@ class _DrawingPageState extends State<DrawingPage> {
                 children: [
                   Expanded(
                     child: GridView.builder(
-                      gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                      gridDelegate:
+                          const SliverGridDelegateWithFixedCrossAxisCount(
                         crossAxisCount: 5,
                       ),
                       itemCount: 26,

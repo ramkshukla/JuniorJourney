@@ -38,7 +38,7 @@ class OverBoard extends StatefulWidget {
 class OverBoardState extends State<OverBoard> with TickerProviderStateMixin {
   late OverBoardAnimator _animator;
 
-  ScrollController _scrollController = new ScrollController();
+  final ScrollController _scrollController = ScrollController();
   double _bulletPadding = 5.0, _bulletSize = 10.0, _bulletContainerWidth = 0;
 
   int _counter = 0, _last = 0;
@@ -114,8 +114,8 @@ class OverBoardState extends State<OverBoard> with TickerProviderStateMixin {
                   opacity: (_counter < _total - 1) ? 1.0 : 0.0,
                   child: TextButton(
                     style: ButtonStyle(
-                      foregroundColor: MaterialStateProperty.resolveWith<Color>(
-                        (Set<MaterialState> states) => PRIMARY_COLOR,
+                      foregroundColor: WidgetStateProperty.resolveWith<Color>(
+                        (Set<WidgetState> states) => PRIMARY_COLOR,
                       ),
                     ),
                     onPressed: (widget.skipCallback ?? _skip),
@@ -133,7 +133,7 @@ class OverBoardState extends State<OverBoard> with TickerProviderStateMixin {
                         padding: const EdgeInsets.all(20.0),
                         child: ((widget.showBullets ?? true)
                             ? SingleChildScrollView(
-                                physics: NeverScrollableScrollPhysics(),
+                                physics: const NeverScrollableScrollPhysics(),
                                 scrollDirection: Axis.horizontal,
                                 controller: _scrollController,
                                 child: Row(
@@ -144,7 +144,7 @@ class OverBoardState extends State<OverBoard> with TickerProviderStateMixin {
                                         padding: EdgeInsets.all(_bulletPadding),
                                         child: AnimatedContainer(
                                             duration:
-                                                Duration(milliseconds: 150),
+                                                const Duration(milliseconds: 150),
                                             height: _bulletSize,
                                             width: (i == _counter)
                                                 ? _bulletSize * 2
@@ -168,8 +168,8 @@ class OverBoardState extends State<OverBoard> with TickerProviderStateMixin {
                     ? TextButton(
                         style: ButtonStyle(
                           foregroundColor:
-                              MaterialStateProperty.resolveWith<Color>(
-                            (Set<MaterialState> states) => PRIMARY_COLOR,
+                              WidgetStateProperty.resolveWith<Color>(
+                            (Set<WidgetState> states) => PRIMARY_COLOR,
                           ),
                         ),
                         onPressed: _next,
@@ -180,8 +180,8 @@ class OverBoardState extends State<OverBoard> with TickerProviderStateMixin {
                     : TextButton(
                         style: ButtonStyle(
                           foregroundColor:
-                              MaterialStateProperty.resolveWith<Color>(
-                            (Set<MaterialState> states) => PRIMARY_COLOR,
+                              WidgetStateProperty.resolveWith<Color>(
+                            (Set<WidgetState> states) => PRIMARY_COLOR,
                           ),
                         ),
                         onPressed: widget.finishCallback,
@@ -215,17 +215,17 @@ class OverBoardState extends State<OverBoard> with TickerProviderStateMixin {
           : (kIsWeb)
               ? SingleChildScrollView(
                   child: Padding(
-                    padding: EdgeInsets.only(top: 64),
+                    padding: const EdgeInsets.only(top: 64),
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: <Widget>[
                         page.doAnimateImage!
                             ? AnimatedBoard(
                                 animator: _animator,
-                                child: new Padding(
-                                  padding: new EdgeInsets.only(bottom: 25.0),
+                                child: Padding(
+                                  padding: const EdgeInsets.only(bottom: 25.0),
                                   child: (page.imageAssetPath != null)
-                                      ? new Image.asset(page.imageAssetPath!,
+                                      ? Image.asset(page.imageAssetPath!,
                                           width: 300.0, height: 300.0)
                                       : buildCacheNetworkImage(
                                           width: 300,
@@ -234,10 +234,10 @@ class OverBoardState extends State<OverBoard> with TickerProviderStateMixin {
                                           plColor: Colors.transparent),
                                 ),
                               )
-                            : new Padding(
-                                padding: new EdgeInsets.only(bottom: 25.0),
+                            : Padding(
+                                padding: const EdgeInsets.only(bottom: 25.0),
                                 child: (page.imageAssetPath != null)
-                                    ? new Image.asset(page.imageAssetPath!,
+                                    ? Image.asset(page.imageAssetPath!,
                                         width: 300.0, height: 300.0)
                                     : buildCacheNetworkImage(
                                         width: 300,
@@ -246,24 +246,24 @@ class OverBoardState extends State<OverBoard> with TickerProviderStateMixin {
                                         plColor: Colors.transparent),
                               ),
                         Padding(
-                          padding: new EdgeInsets.only(
+                          padding: const EdgeInsets.only(
                               top: 10.0, bottom: 30.0, left: 30.0, right: 30.0),
-                          child: new Text(
+                          child: Text(
                             page.title!,
                             textAlign: TextAlign.center,
-                            style: new TextStyle(
+                            style: const TextStyle(
                                 color: Colors.black,
                                 fontSize: 24.0,
                                 fontWeight: FontWeight.bold),
                           ),
                         ),
                         Padding(
-                          padding: new EdgeInsets.only(
+                          padding: const EdgeInsets.only(
                               bottom: 75.0, left: 30.0, right: 30.0),
-                          child: new Text(
+                          child: Text(
                             page.body!,
                             textAlign: TextAlign.center,
-                            style: new TextStyle(
+                            style: const TextStyle(
                               color: SOFT_GREY,
                               fontSize: 15,
                             ),
@@ -279,10 +279,10 @@ class OverBoardState extends State<OverBoard> with TickerProviderStateMixin {
                     page.doAnimateImage!
                         ? AnimatedBoard(
                             animator: _animator,
-                            child: new Padding(
-                              padding: new EdgeInsets.only(bottom: 25.0),
+                            child: Padding(
+                              padding: const EdgeInsets.only(bottom: 25.0),
                               child: (page.imageAssetPath != null)
-                                  ? new Image.asset(page.imageAssetPath!,
+                                  ? Image.asset(page.imageAssetPath!,
                                       width: 300.0, height: 300.0)
                                   : buildCacheNetworkImage(
                                       width: 300,
@@ -291,10 +291,10 @@ class OverBoardState extends State<OverBoard> with TickerProviderStateMixin {
                                       plColor: Colors.transparent),
                             ),
                           )
-                        : new Padding(
-                            padding: new EdgeInsets.only(bottom: 25.0),
+                        : Padding(
+                            padding: const EdgeInsets.only(bottom: 25.0),
                             child: (page.imageAssetPath != null)
-                                ? new Image.asset(page.imageAssetPath!,
+                                ? Image.asset(page.imageAssetPath!,
                                     width: 300.0, height: 300.0)
                                 : buildCacheNetworkImage(
                                     width: 300,
@@ -303,24 +303,24 @@ class OverBoardState extends State<OverBoard> with TickerProviderStateMixin {
                                     plColor: Colors.transparent),
                           ),
                     Padding(
-                      padding: new EdgeInsets.only(
+                      padding: const EdgeInsets.only(
                           top: 10.0, bottom: 30.0, left: 30.0, right: 30.0),
-                      child: new Text(
+                      child: Text(
                         page.title!,
                         textAlign: TextAlign.center,
-                        style: new TextStyle(
+                        style: const TextStyle(
                             color: Colors.black,
                             fontSize: 24.0,
                             fontWeight: FontWeight.bold),
                       ),
                     ),
                     Padding(
-                      padding: new EdgeInsets.only(
+                      padding: const EdgeInsets.only(
                           bottom: 75.0, left: 30.0, right: 30.0),
-                      child: new Text(
+                      child: Text(
                         page.body!,
                         textAlign: TextAlign.center,
-                        style: new TextStyle(
+                        style: const TextStyle(
                           color: SOFT_GREY,
                           fontSize: 15,
                         ),
@@ -352,23 +352,23 @@ class OverBoardState extends State<OverBoard> with TickerProviderStateMixin {
   _animate() {
     _animator.getController().forward(from: 0.0);
 
-    double _bulletDimension = (_bulletPadding * 2) + (_bulletSize);
-    double _scroll = _bulletDimension * _counter;
-    double _maxScroll = _bulletDimension * _total - 1;
-    if (_scroll > _bulletContainerWidth &&
+    double bulletDimension = (_bulletPadding * 2) + (_bulletSize);
+    double scroll = bulletDimension * _counter;
+    double maxScroll = bulletDimension * _total - 1;
+    if (scroll > _bulletContainerWidth &&
         _swipeDirection == SwipeDirection.RIGHT_TO_LEFT) {
-      double _scrollDistance =
-          (((_scroll - _bulletContainerWidth) ~/ _bulletDimension) + 1) *
-              _bulletDimension;
-      _scrollController.animateTo(_scrollDistance,
-          curve: Curves.easeIn, duration: Duration(milliseconds: 100));
-    } else if (_scroll < (_maxScroll - _bulletContainerWidth) &&
+      double scrollDistance =
+          (((scroll - _bulletContainerWidth) ~/ bulletDimension) + 1) *
+              bulletDimension;
+      _scrollController.animateTo(scrollDistance,
+          curve: Curves.easeIn, duration: const Duration(milliseconds: 100));
+    } else if (scroll < (maxScroll - _bulletContainerWidth) &&
         _swipeDirection == SwipeDirection.LEFT_TO_RIGHT) {
-      _scrollController.animateTo(_scroll,
-          curve: Curves.easeIn, duration: Duration(milliseconds: 100));
+      _scrollController.animateTo(scroll,
+          curve: Curves.easeIn, duration: const Duration(milliseconds: 100));
     } else if (_swipeDirection == SwipeDirection.SKIP_TO_LAST) {
-      _scrollController.animateTo(_maxScroll,
-          curve: Curves.easeIn, duration: Duration(milliseconds: 100));
+      _scrollController.animateTo(maxScroll,
+          curve: Curves.easeIn, duration: const Duration(milliseconds: 100));
     }
   }
 }
@@ -382,10 +382,10 @@ class AnimatedBoard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Transform(
-      transform: new Matrix4.translationValues(
+      transform: Matrix4.translationValues(
           0.0, 50.0 * (1.0 - animator!.getAnimator().value), 0.0),
-      child: new Padding(
-        padding: new EdgeInsets.only(bottom: 25.0),
+      child: Padding(
+        padding: const EdgeInsets.only(bottom: 25.0),
         child: child,
       ),
     );

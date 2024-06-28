@@ -1,3 +1,5 @@
+// ignore_for_file: constant_identifier_names
+
 /*
 this is constant pages
  */
@@ -33,8 +35,8 @@ const String GLOBAL_URL = 'https://ijtechnology.net/assets/images/api/devkit';
 const String SERVER_URL = 'https://ijtechnology.net/api_devkit';
 //const String SERVER_URL = 'http://192.168.0.4/devkit/api';
 
-const String LOGIN_API = SERVER_URL + "/authentication/login";
-const String PRODUCT_API = SERVER_URL + "/example/getProduct";
+const String LOGIN_API = "$SERVER_URL/authentication/login";
+const String PRODUCT_API = "$SERVER_URL/example/getProduct";
 
 extension StringConstant on String {
   void get logIt {

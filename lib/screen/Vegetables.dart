@@ -12,7 +12,7 @@ class VegetableSlider extends StatefulWidget {
 
 class _VegetableSliderState extends State<VegetableSlider> {
   FlutterTts flutterTts = FlutterTts();
-  PageController _pageController = PageController();
+  final PageController _pageController = PageController();
   int currentIndex = 0;
   List<String> vegetables = [
     "Carrot",
@@ -69,7 +69,7 @@ class _VegetableSliderState extends State<VegetableSlider> {
         body: Container(
           decoration: BoxDecoration(
             color: Colors.black.withOpacity(0.9),
-            image: DecorationImage(
+            image: const DecorationImage(
               image: AssetImage(
                   'assets/images2/vege_bg.jpg'), // Background image path
               fit: BoxFit.cover,
@@ -88,7 +88,7 @@ class _VegetableSliderState extends State<VegetableSlider> {
                         Navigator.push(
                           context,
                           MaterialPageRoute(
-                              builder: (context) => AlphabetMain()),
+                              builder: (context) => const AlphabetMain()),
                         );
 
                         // Handle back labelLarge tap
@@ -122,8 +122,8 @@ class _VegetableSliderState extends State<VegetableSlider> {
                               height: 200,
                             ),
                             Text(
-                              '${vegetables[currentIndex]}',
-                              style: TextStyle(
+                              vegetables[currentIndex],
+                              style: const TextStyle(
                                 fontSize: 35,
                                 fontWeight: FontWeight.bold,
                                 color: Colors.white,
@@ -142,7 +142,7 @@ class _VegetableSliderState extends State<VegetableSlider> {
                 children: [
                   GestureDetector(
                     onTap: _previousVegetable,
-                    child: Icon(Icons.arrow_back),
+                    child: const Icon(Icons.arrow_back),
                   ),
                   Expanded(
                     child: SingleChildScrollView(
@@ -156,15 +156,15 @@ class _VegetableSliderState extends State<VegetableSlider> {
                                 currentIndex = index;
                                 _pageController.animateToPage(
                                   index,
-                                  duration: Duration(milliseconds: 500),
+                                  duration: const Duration(milliseconds: 500),
                                   curve: Curves.easeInOut,
                                 );
                                 _speak();
                               });
                             },
                             child: Container(
-                              margin: EdgeInsets.all(8),
-                              padding: EdgeInsets.symmetric(
+                              margin: const EdgeInsets.all(8),
+                              padding: const EdgeInsets.symmetric(
                                   horizontal: 12, vertical: 8),
                               decoration: BoxDecoration(
                                 color: currentIndex == index
@@ -188,7 +188,7 @@ class _VegetableSliderState extends State<VegetableSlider> {
                   ),
                   GestureDetector(
                     onTap: _nextVegetable,
-                    child: Icon(Icons.arrow_forward),
+                    child: const Icon(Icons.arrow_forward),
                   ),
                 ],
               ),

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:junior_journey/NewPage.dart';
+import 'package:junior_journey/new_page.dart';
 import 'package:junior_journey/config/constant.dart';
 import 'package:junior_journey/data/dummy.dart';
 import 'package:junior_journey/data/my_colors.dart';
@@ -168,7 +168,7 @@ class BottomNavigationIconRouteState extends State<BottomNavigationShop>
             if (name == "Fashion") {
               Navigator.push(
                 context,
-                MaterialPageRoute(builder: (context) => AlphabetMain()),
+                MaterialPageRoute(builder: (context) => const AlphabetMain()),
               );
             } else if (name == "Home and Garden") {
               Navigator.push(

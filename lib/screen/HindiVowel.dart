@@ -8,13 +8,15 @@ class HindiVowel extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return const MaterialApp(
       home: MyHomePage(),
     );
   }
 }
 
 class MyHomePage extends StatefulWidget {
+  const MyHomePage({super.key});
+
   @override
   _MyHomePageState createState() => _MyHomePageState();
 }
@@ -80,7 +82,7 @@ class _MyHomePageState extends State<MyHomePage> {
   @override
   void initState() {
     super.initState();
-    speak('${letters[currentIndex]}');
+    speak(letters[currentIndex]);
     SystemChrome.setPreferredOrientations([
       DeviceOrientation.landscapeRight,
       DeviceOrientation.landscapeLeft,
@@ -91,7 +93,7 @@ class _MyHomePageState extends State<MyHomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Container(
-        decoration: BoxDecoration(
+        decoration: const BoxDecoration(
           image: DecorationImage(
             image: AssetImage(
                 'assets/images/green_board.jpg'), // Background image path
@@ -110,7 +112,7 @@ class _MyHomePageState extends State<MyHomePage> {
                     onTap: () {
                       Navigator.push(
                         context,
-                        MaterialPageRoute(builder: (context) => HindiMain()),
+                        MaterialPageRoute(builder: (context) => const HindiMain()),
                       );
 
                       // Handle back labelLarge tap
@@ -137,17 +139,17 @@ class _MyHomePageState extends State<MyHomePage> {
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       Padding(
-                        padding: EdgeInsets.only(right: 70),
+                        padding: const EdgeInsets.only(right: 70),
                         child: ElevatedButton(
                           onPressed: onBackPressed,
-                          child: Text('Back'),
+                          child: const Text('Back'),
                         ),
                       ),
                       Padding(
-                        padding: EdgeInsets.only(left: 70),
+                        padding: const EdgeInsets.only(left: 70),
                         child: ElevatedButton(
                           onPressed: onNextPressed,
-                          child: Text('Next'),
+                          child: const Text('Next'),
                         ),
                       ),
                     ],
@@ -169,11 +171,11 @@ class _MyHomePageState extends State<MyHomePage> {
         if (currentIndex % 2 == 0) {
           updateSize(height + 50, width + 50);
           speak(
-              '${letters[currentIndex - 1]}  से ${objects[(currentIndex / 2).toInt()]}');
+              '${letters[currentIndex - 1]}  से ${objects[currentIndex ~/ 2]}');
         } else {
           height = 200;
           width = 150;
-          speak('${letters[currentIndex]}');
+          speak(letters[currentIndex]);
         }
       } else {
         currentIndex = 1;

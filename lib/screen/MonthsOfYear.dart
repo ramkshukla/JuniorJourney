@@ -7,7 +7,7 @@ class MonthOfYear extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return const MaterialApp(
       home: Scaffold(
         body: MonthOfYearScreen(),
       ),
@@ -16,6 +16,8 @@ class MonthOfYear extends StatelessWidget {
 }
 
 class MonthOfYearScreen extends StatefulWidget {
+  const MonthOfYearScreen({super.key});
+
   @override
   _DaysOfWeekState createState() => _DaysOfWeekState();
 }
@@ -72,7 +74,7 @@ class _DaysOfWeekState extends State<MonthOfYearScreen> {
         Container(
           decoration: BoxDecoration(
             image: DecorationImage(
-              image: AssetImage('assets/images/${background}.jpg'),
+              image: AssetImage('assets/images/$background.jpg'),
               fit: BoxFit.cover,
             ),
           ),
@@ -120,7 +122,7 @@ class _DaysOfWeekState extends State<MonthOfYearScreen> {
                 child: Align(
                   alignment: Alignment.bottomLeft,
                   child: Padding(
-                    padding: EdgeInsets.all(2.0),
+                    padding: const EdgeInsets.all(2.0),
                     child: Image.asset(
                       'assets/images/back.png', // Your first image asset path
                       width: 70, // Adjust width as needed
@@ -150,7 +152,7 @@ class _DaysOfWeekState extends State<MonthOfYearScreen> {
                 child: Align(
                   alignment: Alignment.bottomRight,
                   child: Padding(
-                    padding: EdgeInsets.all(2.0),
+                    padding: const EdgeInsets.all(2.0),
                     child: Image.asset(
                       'assets/images/next.png', // Your second image asset path
                       width: 70, // Adjust width as needed

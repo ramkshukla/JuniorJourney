@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:flutter/widgets.dart';
 import 'package:junior_journey/screen/addition_subtraction.dart';
 import 'package:junior_journey/screen/division.dart';
 import 'package:junior_journey/screen/multiplication.dart';
@@ -12,7 +11,7 @@ class MathsMain extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return const MaterialApp(
       debugShowCheckedModeBanner: false,
       home: Scaffold(
         body: MathsMainScreen(),
@@ -22,6 +21,8 @@ class MathsMain extends StatelessWidget {
 }
 
 class MathsMainScreen extends StatefulWidget {
+  const MathsMainScreen({super.key});
+
   @override
   _MathsMainScreenState createState() => _MathsMainScreenState();
 }
@@ -56,7 +57,7 @@ class _MathsMainScreenState extends State<MathsMainScreen> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      decoration: BoxDecoration(
+      decoration: const BoxDecoration(
         image: DecorationImage(
           image: AssetImage(
               'assets/images/green_background.jpg'), // Background image path
@@ -69,9 +70,9 @@ class _MathsMainScreenState extends State<MathsMainScreen> {
         itemBuilder: (BuildContext context, int index) {
           return Center(
             child: Container(
-              margin: EdgeInsets.only(top: 50, bottom: 50, left: 30),
+              margin: const EdgeInsets.only(top: 50, bottom: 50, left: 30),
               child: Padding(
-                padding: EdgeInsets.all(8.0),
+                padding: const EdgeInsets.all(8.0),
                 child: GestureDetector(
                   onTap: () {
                     // Handle tap event for each card
@@ -80,13 +81,13 @@ class _MathsMainScreenState extends State<MathsMainScreen> {
                         context,
                         MaterialPageRoute(
                             builder: (context) =>
-                                NumberDisplay(language: "en")),
+                                const NumberDisplay(language: "en")),
                       );
                     } else if (index == 1) {
                       Navigator.push(
                         context,
                         MaterialPageRoute(
-                            builder: (context) => TablesMain(
+                            builder: (context) => const TablesMain(
                                   language: 'en',
                                 )),
                       );
@@ -95,25 +96,25 @@ class _MathsMainScreenState extends State<MathsMainScreen> {
                         context,
                         MaterialPageRoute(
                             builder: (context) =>
-                                AdditionAndSubtraction(operator: "Add")),
+                                const AdditionAndSubtraction(operator: "Add")),
                       );
                     } else if (index == 3) {
                       Navigator.push(
                         context,
                         MaterialPageRoute(
                             builder: (context) =>
-                                AdditionAndSubtraction(operator: "Sub")),
+                                const AdditionAndSubtraction(operator: "Sub")),
                       );
                     } else if (index == 4) {
                       Navigator.push(
                         context,
                         MaterialPageRoute(
-                            builder: (context) => Multiplication()),
+                            builder: (context) => const Multiplication()),
                       );
                     } else if (index == 5) {
                       Navigator.push(
                         context,
-                        MaterialPageRoute(builder: (context) => Devision()),
+                        MaterialPageRoute(builder: (context) => const Devision()),
                       );
                     }
                   },

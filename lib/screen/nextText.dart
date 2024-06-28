@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:animated_text_kit/animated_text_kit.dart';
 
 void main() {
-  runApp(MaterialApp(
+  runApp(const MaterialApp(
     home: YourWidget(),
   ));
 }
@@ -35,7 +35,7 @@ class _YourWidgetState extends State<YourWidget> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Animated Text Example'),
+        title: const Text('Animated Text Example'),
       ),
       body: Center(
         child: Column(
@@ -45,10 +45,10 @@ class _YourWidgetState extends State<YourWidget> {
               key: _textKey, // Pass the key to WidgetShowText
               showText: texts[_currentIndex],
             ),
-            SizedBox(height: 20),
+            const SizedBox(height: 20),
             ElevatedButton(
               onPressed: _nextText,
-              child: Text('Next'),
+              child: const Text('Next'),
             ),
           ],
         ),
@@ -78,7 +78,7 @@ class WidgetShowText extends StatelessWidget {
             animatedTexts: [
               TypewriterAnimatedText(
                 showText,
-                speed: Duration(milliseconds: 80),
+                speed: const Duration(milliseconds: 80),
               ),
             ],
             onTap: () {
