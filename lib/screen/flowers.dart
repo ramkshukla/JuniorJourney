@@ -12,7 +12,7 @@ class FlowersSlider extends StatefulWidget {
 
 class _FruitSliderState extends State<FlowersSlider> {
   FlutterTts flutterTts = FlutterTts();
-  PageController _pageController = PageController();
+  final PageController _pageController = PageController();
   int currentIndex = 0;
   List<String> flowers = [
     'Rose',
@@ -66,7 +66,7 @@ class _FruitSliderState extends State<FlowersSlider> {
     return MaterialApp(
       home: Scaffold(
         body: Container(
-          decoration: BoxDecoration(
+          decoration: const BoxDecoration(
             image: DecorationImage(
               image: AssetImage(
                   'assets/images2/flowers_bg.jpg'), // Background image path
@@ -86,7 +86,7 @@ class _FruitSliderState extends State<FlowersSlider> {
                         Navigator.push(
                           context,
                           MaterialPageRoute(
-                              builder: (context) => AlphabetMain()),
+                              builder: (context) => const AlphabetMain()),
                         );
 
                         // Handle back labelLarge tap
@@ -119,8 +119,8 @@ class _FruitSliderState extends State<FlowersSlider> {
                             height: 200,
                           ),
                           Text(
-                            '${flowers[currentIndex]}',
-                            style: TextStyle(
+                            flowers[currentIndex],
+                            style: const TextStyle(
                               fontSize: 35,
                               fontWeight: FontWeight.bold,
                               color: Colors.white,
@@ -138,7 +138,7 @@ class _FruitSliderState extends State<FlowersSlider> {
                 children: [
                   GestureDetector(
                     onTap: _previousVegetable,
-                    child: Icon(Icons.arrow_back),
+                    child: const Icon(Icons.arrow_back),
                   ),
                   Expanded(
                     child: SingleChildScrollView(
@@ -152,15 +152,15 @@ class _FruitSliderState extends State<FlowersSlider> {
                                 currentIndex = index;
                                 _pageController.animateToPage(
                                   index,
-                                  duration: Duration(milliseconds: 500),
+                                  duration: const Duration(milliseconds: 500),
                                   curve: Curves.easeInOut,
                                 );
                                 _speak();
                               });
                             },
                             child: Container(
-                              margin: EdgeInsets.all(8),
-                              padding: EdgeInsets.symmetric(
+                              margin: const EdgeInsets.all(8),
+                              padding: const EdgeInsets.symmetric(
                                   horizontal: 12, vertical: 8),
                               decoration: BoxDecoration(
                                 color: currentIndex == index
@@ -184,7 +184,7 @@ class _FruitSliderState extends State<FlowersSlider> {
                   ),
                   GestureDetector(
                     onTap: _nextVegetable,
-                    child: Icon(Icons.arrow_forward),
+                    child: const Icon(Icons.arrow_forward),
                   ),
                 ],
               ),

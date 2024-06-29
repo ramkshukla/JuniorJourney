@@ -22,7 +22,7 @@ class Dummy{
   static List<ShopCategory> getShoppingCategory() {
     List<ShopCategory> items = [];
     for (int i = 0; i < shop_category_title.length; i++) {
-      ShopCategory obj = new ShopCategory();
+      ShopCategory obj = ShopCategory();
       obj.icon = shop_category_icon[i];
       obj.image = shop_category_img[i];
       obj.title = shop_category_title[i];

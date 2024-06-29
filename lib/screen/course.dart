@@ -40,7 +40,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       home: Scaffold(
         appBar: AppBar(
-          title: Text('Course List'),
+          title: const Text('Course List'),
         ),
         body: CourseList(courses: courses),
       ),
@@ -51,14 +51,14 @@ class MyApp extends StatelessWidget {
 class CourseList extends StatefulWidget {
   final List<Course> courses;
 
-  CourseList({required this.courses});
+  const CourseList({super.key, required this.courses});
 
   @override
   _CourseListState createState() => _CourseListState();
 }
 
 class _CourseListState extends State<CourseList> {
-  TextEditingController _searchController = TextEditingController();
+  final TextEditingController _searchController = TextEditingController();
   List<Course> filteredCourses = [];
 
   @override
@@ -72,7 +72,7 @@ class _CourseListState extends State<CourseList> {
     return Column(
       children: [
         Padding(
-          padding: EdgeInsets.all(8.0),
+          padding: const EdgeInsets.all(8.0),
           child: TextField(
             controller: _searchController,
             onChanged: (value) {
@@ -90,7 +90,7 @@ class _CourseListState extends State<CourseList> {
                 }).toList();
               });
             },
-            decoration: InputDecoration(
+            decoration: const InputDecoration(
               labelText: 'Search',
               hintText: 'Search for a course...',
               prefixIcon: Icon(Icons.search),

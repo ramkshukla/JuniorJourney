@@ -168,7 +168,7 @@ class BottomNavigationIconRouteState extends State<BottomNavigationShop>
             if (name == "Fashion") {
               Navigator.push(
                 context,
-                MaterialPageRoute(builder: (context) => AlphabetMain()),
+                MaterialPageRoute(builder: (context) => const AlphabetMain()),
               );
             } else if (name == "Home and Garden") {
               Navigator.push(

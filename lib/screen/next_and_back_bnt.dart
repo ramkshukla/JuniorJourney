@@ -17,7 +17,7 @@ class NextAndBackBtn extends StatelessWidget {
             child: Align(
               alignment: Alignment.bottomLeft,
               child: Padding(
-                padding: EdgeInsets.only(left: 50),
+                padding: const EdgeInsets.only(left: 50),
                 child: Image.asset(
                   'assets/images/back.png',
                   width: 50,
@@ -33,7 +33,7 @@ class NextAndBackBtn extends StatelessWidget {
             child: Align(
               alignment: Alignment.bottomRight,
               child: Padding(
-                padding: EdgeInsets.only(right: 50),
+                padding: const EdgeInsets.only(right: 50),
                 child: Image.asset(
                   'assets/images/next.png',
                   width: 50,

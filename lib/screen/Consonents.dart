@@ -8,13 +8,15 @@ class Consonents extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return const MaterialApp(
       home: MyHomePage(),
     );
   }
 }
 
 class MyHomePage extends StatefulWidget {
+  const MyHomePage({super.key});
+
   @override
   _MyHomePageState createState() => _MyHomePageState();
 }
@@ -110,7 +112,7 @@ class _MyHomePageState extends State<MyHomePage> {
   @override
   void initState() {
     super.initState();
-    speak('${letters[currentIndex]}');
+    speak(letters[currentIndex]);
     SystemChrome.setPreferredOrientations([
       DeviceOrientation.landscapeRight,
       DeviceOrientation.landscapeLeft,
@@ -138,7 +140,7 @@ class _MyHomePageState extends State<MyHomePage> {
                   onTap: () {
                     Navigator.push(
                       context,
-                      MaterialPageRoute(builder: (context) => AlphabetMain()),
+                      MaterialPageRoute(builder: (context) => const AlphabetMain()),
                     );
 
                     // Handle back labelLarge tap
@@ -160,17 +162,17 @@ class _MyHomePageState extends State<MyHomePage> {
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       Padding(
-                        padding: EdgeInsets.only(right: 70, top: 50),
+                        padding: const EdgeInsets.only(right: 70, top: 50),
                         child: ElevatedButton(
                           onPressed: onBackPressed,
-                          child: Text('Back'),
+                          child: const Text('Back'),
                         ),
                       ),
                       Padding(
-                        padding: EdgeInsets.only(left: 70, top: 50),
+                        padding: const EdgeInsets.only(left: 70, top: 50),
                         child: ElevatedButton(
                           onPressed: onNextPressed,
-                          child: Text('Next'),
+                          child: const Text('Next'),
                         ),
                       ),
                     ],
@@ -198,11 +200,11 @@ class _MyHomePageState extends State<MyHomePage> {
           else if (i == 1)
             //_buildDigitImage(digits[i]),
             Transform.translate(
-                offset: Offset(-20.0, -0.0),
+                offset: const Offset(-20.0, -0.0),
                 child: _buildDigitImage(digits[i], 'images'))
           else if (i == 2)
             Transform.translate(
-                offset: Offset(-40.0, -0.0),
+                offset: const Offset(-40.0, -0.0),
                 child: _buildDigitImage(digits[i], 'images'))
       ],
     );
@@ -211,7 +213,7 @@ class _MyHomePageState extends State<MyHomePage> {
   Widget _buildDigitImage(String digit, String folder) {
     // Replace 'number_$digit.png' with the actual filename of your digit images
     return Image.asset(
-      'assets/${folder}/${digit}.png',
+      'assets/$folder/$digit.png',
       height: 150, // Adjust height as needed
       width: 150, // Adjust width as needed
     );
@@ -228,7 +230,7 @@ class _MyHomePageState extends State<MyHomePage> {
         } else {
           height = 200;
           width = 150;
-          speak('${letters[currentIndex]}');
+          speak(letters[currentIndex]);
         }
       } else {
         currentIndex = 1;

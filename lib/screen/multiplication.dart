@@ -9,7 +9,7 @@ class Multiplication extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return const MaterialApp(
       home: Scaffold(
         body: RabbitCountScreen(),
       ),
@@ -18,6 +18,8 @@ class Multiplication extends StatelessWidget {
 }
 
 class RabbitCountScreen extends StatefulWidget {
+  const RabbitCountScreen({super.key});
+
   @override
   _RabbitCountScreenState createState() => _RabbitCountScreenState();
 }
@@ -72,7 +74,7 @@ class _RabbitCountScreenState extends State<RabbitCountScreen>
     texts1 = texts3;
     _controller = AnimationController(
       vsync: this,
-      duration: Duration(seconds: 0),
+      duration: const Duration(seconds: 0),
     );
 
     _animation = Tween<double>(begin: 0, end: 1).animate(_controller);
@@ -94,7 +96,7 @@ class _RabbitCountScreenState extends State<RabbitCountScreen>
   Future<void> speakTexts() async {
     for (String text in texts1) {
       await speakText(text);
-      await Future.delayed(Duration(seconds: 2));
+      await Future.delayed(const Duration(seconds: 2));
     }
   }
 
@@ -135,14 +137,14 @@ class _RabbitCountScreenState extends State<RabbitCountScreen>
   @override
   Widget build(BuildContext context) {
     return Container(
-      decoration: BoxDecoration(
+      decoration: const BoxDecoration(
         image: DecorationImage(
           image: AssetImage(
               'assets/images/green_board.jpg'), // Background image path
           fit: BoxFit.cover,
         ),
       ),
-      padding: EdgeInsets.all(20),
+      padding: const EdgeInsets.all(20),
       child: Column(mainAxisAlignment: MainAxisAlignment.center, children: [
         // First Row of Images
         Center(
@@ -186,7 +188,7 @@ class _RabbitCountScreenState extends State<RabbitCountScreen>
             ],
           ),
         ),
-        SizedBox(height: 5),
+        const SizedBox(height: 5),
 
         // Second Row of Images
         Row(
@@ -224,7 +226,7 @@ class _RabbitCountScreenState extends State<RabbitCountScreen>
             )
           ],
         ),
-        SizedBox(height: 5),
+        const SizedBox(height: 5),
 
         // Third Row with Typewriter Animated Text
         WidgetShowText(
@@ -326,7 +328,7 @@ class WidgetShowText extends StatelessWidget {
             animatedTexts: [
               TypewriterAnimatedText(
                 showText,
-                speed: Duration(milliseconds: 80),
+                speed: const Duration(milliseconds: 80),
               ),
             ],
             onTap: () {

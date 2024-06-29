@@ -76,52 +76,52 @@ class _AlphabetMainScreenState extends State<AlphabetMainScreen> {
                 if (index == 0) {
                   Navigator.push(
                     context,
-                    MaterialPageRoute(builder: (context) => AlphabetTwo()),
+                    MaterialPageRoute(builder: (context) => const AlphabetTwo()),
                   );
                 } else if (index == 1) {
                   Navigator.push(
                     context,
-                    MaterialPageRoute(builder: (context) => AlphabetOne()),
+                    MaterialPageRoute(builder: (context) => const AlphabetOne()),
                   );
                 } else if (index == 2) {
                   Navigator.push(
                     context,
-                    MaterialPageRoute(builder: (context) => Consonents()),
+                    MaterialPageRoute(builder: (context) => const Consonents()),
                   );
                 } else if (index == 3) {
                   Navigator.push(
                     context,
-                    MaterialPageRoute(builder: (context) => DaysOfWeek()),
+                    MaterialPageRoute(builder: (context) => const DaysOfWeek()),
                   );
                 } else if (index == 4) {
                   Navigator.push(
                     context,
-                    MaterialPageRoute(builder: (context) => MonthOfYear()),
+                    MaterialPageRoute(builder: (context) => const MonthOfYear()),
                   );
                 } else if (index == 5) {
                   Navigator.push(
                     context,
-                    MaterialPageRoute(builder: (context) => VegetableSlider()),
+                    MaterialPageRoute(builder: (context) => const VegetableSlider()),
                   );
                 } else if (index == 6) {
                   Navigator.push(
                     context,
-                    MaterialPageRoute(builder: (context) => AnimaleSlider()),
+                    MaterialPageRoute(builder: (context) => const AnimaleSlider()),
                   );
                 } else if (index == 7) {
                   Navigator.push(
                     context,
-                    MaterialPageRoute(builder: (context) => FruitSlider()),
+                    MaterialPageRoute(builder: (context) => const FruitSlider()),
                   );
                 } else if (index == 8) {
                   Navigator.push(
                     context,
-                    MaterialPageRoute(builder: (context) => FlowersSlider()),
+                    MaterialPageRoute(builder: (context) => const FlowersSlider()),
                   );
                 } else if (index == 9) {
                   Navigator.push(
                     context,
-                    MaterialPageRoute(builder: (context) => PoemsMain()),
+                    MaterialPageRoute(builder: (context) => const PoemsMain()),
                   );
                 }
               },
@@ -129,7 +129,7 @@ class _AlphabetMainScreenState extends State<AlphabetMainScreen> {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   ClipRRect(
-                    borderRadius: BorderRadius.all(Radius.circular(15)),
+                    borderRadius: const BorderRadius.all(Radius.circular(15)),
                     child: Material(
                       elevation: 10,
                       child: Image.asset(

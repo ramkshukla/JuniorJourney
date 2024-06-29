@@ -67,17 +67,17 @@ class AlphabetMainScreenState extends State<AlphabetMainScreen> {
                 if (index == 0) {
                   Navigator.push(
                     context,
-                    MaterialPageRoute(builder: (context) => AlphabetMain()),
+                    MaterialPageRoute(builder: (context) => const AlphabetMain()),
                   );
                 } else if (index == 2) {
                   Navigator.push(
                     context,
-                    MaterialPageRoute(builder: (context) => MathsMain()),
+                    MaterialPageRoute(builder: (context) => const MathsMain()),
                   );
                 } else if (index == 1) {
                   Navigator.push(
                     context,
-                    MaterialPageRoute(builder: (context) => HindiMain()),
+                    MaterialPageRoute(builder: (context) => const HindiMain()),
                   );
                 }
               },
@@ -89,9 +89,9 @@ class AlphabetMainScreenState extends State<AlphabetMainScreen> {
                       borderRadius: BorderRadius.circular(20),
                     ),
                     child: Padding(
-                      padding: EdgeInsets.all(5),
+                      padding: const EdgeInsets.all(5),
                       child: ClipRRect(
-                        borderRadius: BorderRadius.all(Radius.circular(15)),
+                        borderRadius: const BorderRadius.all(Radius.circular(15)),
                         child: Image.asset(
                           'assets/images/${images[index]}.png', // Assuming images are named as 1.jpg, 2.jpg, etc.
                           height: 220, // Adjust height as needed

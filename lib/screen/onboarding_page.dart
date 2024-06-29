@@ -29,14 +29,14 @@ class _Onboarding1PageState extends State<Onboarding1Page> {
             '"Discover the Joy of Reading!" encourages children to embark on exciting literary journeys, fostering a love for books and imagination while unlocking endless worlds and knowledge through the magic of storytelling.',
         doAnimateImage: true),
     PageModel(
-        color: Color.fromARGB(255, 230, 233, 238),
+        color: const Color.fromARGB(255, 230, 233, 238),
         imageAssetPath: 'assets/images/slide_img2.png',
         title: 'Grow Plants and Learn Nature!',
         body:
             '"Grow Plants and Learn Nature!" encourages kids to cultivate green thumbs while discovering the wonders of the natural world through hands-on gardening experiences.',
         doAnimateImage: true),
     PageModel(
-        color: Color.fromARGB(255, 230, 233, 238),
+        color: const Color.fromARGB(255, 230, 233, 238),
         imageAssetPath: 'assets/images/slide_img4.png',
         title: 'Fun with Numbers and Math!',
         body:

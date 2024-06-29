@@ -17,7 +17,7 @@ class TablesMain extends StatelessWidget {
 
 class TablesMainScreen extends StatelessWidget {
   final String language;
-  TablesMainScreen({required this.language});
+  TablesMainScreen({super.key, required this.language});
   final List<String> numbers = [
     'zero',
     'one',
@@ -38,7 +38,7 @@ class TablesMainScreen extends StatelessWidget {
     return Scaffold(
       body: Container(
         child: GridView.builder(
-          gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+          gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
             crossAxisCount: 5, // 10 columns
           ),
           itemCount: 19, // Total numbers from 1 to 100
@@ -73,7 +73,7 @@ class TablesMainScreen extends StatelessWidget {
     // Create a row to display the digits as images
     return Container(
       color: Colors.blueGrey,
-      margin: EdgeInsets.all(3),
+      margin: const EdgeInsets.all(3),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
@@ -83,11 +83,11 @@ class TablesMainScreen extends StatelessWidget {
             else if (i == 1)
               //_buildDigitImage(digits[i]),
               Transform.translate(
-                  offset: Offset(-30.0, -0.0),
+                  offset: const Offset(-30.0, -0.0),
                   child: _buildDigitImage(digits[i]))
             else if (i == 2)
               Transform.translate(
-                  offset: Offset(-60.0, -0.0),
+                  offset: const Offset(-60.0, -0.0),
                   child: _buildDigitImage(digits[i]))
         ],
       ),

@@ -5,7 +5,7 @@ import 'package:junior_journey/screen/hindi_poems_main.dart';
 
 class HindiPoems extends StatelessWidget {
   final int index;
-  HindiPoems({required this.index, super.key});
+  const HindiPoems({required this.index, super.key});
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -16,7 +16,7 @@ class HindiPoems extends StatelessWidget {
 
 class TtsPage extends StatefulWidget {
   final int index;
-  TtsPage({required this.index});
+  const TtsPage({super.key, required this.index});
   @override
   _TtsPageState createState() => _TtsPageState(index: index);
 }
@@ -74,7 +74,7 @@ class _TtsPageState extends State<TtsPage> {
         decoration: BoxDecoration(
           image: DecorationImage(
             image: AssetImage(
-                'assets/images2/${background}.jpg'), // Background image path
+                'assets/images2/$background.jpg'), // Background image path
             fit: BoxFit.cover,
           ),
         ),
@@ -93,7 +93,7 @@ class _TtsPageState extends State<TtsPage> {
                         Navigator.push(
                           context,
                           MaterialPageRoute(
-                              builder: (context) => HindiPoemsMain()),
+                              builder: (context) => const HindiPoemsMain()),
                         );
 
                         // Handle back labelLarge tap
@@ -111,11 +111,11 @@ class _TtsPageState extends State<TtsPage> {
                 child: Align(
                   alignment: Alignment.bottomCenter,
                   child: Padding(
-                    padding: EdgeInsets.only(
+                    padding: const EdgeInsets.only(
                         bottom: 20), // Adjust the padding as needed
                     child: ElevatedButton(
                       onPressed: _speak,
-                      child: Text('Speak'),
+                      child: const Text('Speak'),
                     ),
                   ),
                 ),

@@ -7,7 +7,7 @@ class AlphabetOne extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return const MaterialApp(
       debugShowCheckedModeBanner: false,
       home: DrawingPage(),
     );
@@ -31,7 +31,7 @@ class _DrawingPageState extends State<DrawingPage> {
     return Scaffold(
         body: Center(
       child: Container(
-        decoration: BoxDecoration(
+        decoration: const BoxDecoration(
           image: DecorationImage(
             image: AssetImage(
                 'assets/images/green_background.jpg'), // Background image path
@@ -48,7 +48,7 @@ class _DrawingPageState extends State<DrawingPage> {
                 onTap: () {
                   Navigator.push(
                     context,
-                    MaterialPageRoute(builder: (context) => AlphabetMain()),
+                    MaterialPageRoute(builder: (context) => const AlphabetMain()),
                   );
 
                   // Handle back labelLarge tap
@@ -62,7 +62,7 @@ class _DrawingPageState extends State<DrawingPage> {
                 ),
               ),
             ),
-            SizedBox(
+            const SizedBox(
               height: 10,
             ),
             Padding(
@@ -71,7 +71,7 @@ class _DrawingPageState extends State<DrawingPage> {
                 children: [
                   Expanded(
                     child: GridView.builder(
-                      gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                      gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
                         crossAxisCount: 5,
                       ),
                       itemCount: 26,

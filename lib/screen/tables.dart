@@ -21,7 +21,7 @@ class Tables extends StatelessWidget {
 class MultiplicationTable extends StatefulWidget {
   final String index;
   final String language;
-  MultiplicationTable({required this.index, required this.language});
+  const MultiplicationTable({super.key, required this.index, required this.language});
   @override
   _MultiplicationTableState createState() =>
       _MultiplicationTableState(index: index, language: language);
@@ -82,7 +82,7 @@ class _MultiplicationTableState extends State<MultiplicationTable> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Container(
-        decoration: BoxDecoration(
+        decoration: const BoxDecoration(
           image: DecorationImage(
             image: AssetImage(
                 'assets/images/green_board.jpg'), // Background image path
@@ -140,14 +140,15 @@ class _MultiplicationTableState extends State<MultiplicationTable> {
                     ),
                     onPressed: () {
                       setState(() {
-                        if (currentNumber < 10)
+                        if (currentNumber < 10) {
                           currentNumber++;
-                        else
+                        } else {
                           currentNumber = 1;
+                        }
                       });
                       _speakNumber((int.parse(index) * currentNumber), index);
                     },
-                    child: Text('Next'),
+                    child: const Text('Next'),
                   ),
                 ],
               ),
