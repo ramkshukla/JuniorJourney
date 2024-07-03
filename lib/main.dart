@@ -8,7 +8,7 @@ import 'package:junior_journey/data/my_text.dart';
 import 'package:junior_journey/model/bottom_nav.dart';
 import 'package:junior_journey/model/category.dart';
 import 'package:junior_journey/screen/alphabet_main.dart';
-import 'package:junior_journey/screen/splash_screen.dart';
+import 'package:junior_journey/screen/onboarding_page.dart';
 
 void main() {
   "Main Method is called".logIt;
@@ -21,7 +21,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return const MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: MyHomePage(),
+      home: Onboarding1Page(),
     );
   }
 }
