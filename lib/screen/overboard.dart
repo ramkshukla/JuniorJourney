@@ -7,7 +7,7 @@ import 'package:junior_journey/data/cache_image_network.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
-enum SwipeDirection { LEFT_TO_RIGHT, RIGHT_TO_LEFT, SKIP_TO_LAST }
+enum SwipeDirection { leftToRight, rightToLeft, skipToLast }
 
 class OverBoard extends StatefulWidget {
   final List<PageModel> pages;
@@ -39,13 +39,14 @@ class OverBoardState extends State<OverBoard> with TickerProviderStateMixin {
   late OverBoardAnimator _animator;
 
   final ScrollController _scrollController = ScrollController();
-  double _bulletPadding = 5.0, _bulletSize = 10.0, _bulletContainerWidth = 0;
+  double bulletPadding = 5.0, bulletSize = 10.0, bulletContainerWidth = 0;
 
-  int _counter = 0, _last = 0;
+  int _counter = 0;
+  int _last = 0;
   int _total = 0;
   double initial = 0, distance = 0;
   Random random = Random();
-  SwipeDirection _swipeDirection = SwipeDirection.RIGHT_TO_LEFT;
+  SwipeDirection _swipeDirection = SwipeDirection.rightToLeft;
 
   @override
   void initState() {
@@ -79,13 +80,13 @@ class OverBoardState extends State<OverBoard> with TickerProviderStateMixin {
         if (distance > 1 && _counter > 0) {
           setState(() {
             _counter--;
-            _swipeDirection = SwipeDirection.LEFT_TO_RIGHT;
+            _swipeDirection = SwipeDirection.leftToRight;
           });
           _animate();
         } else if (distance < 0 && _counter < _total - 1) {
           setState(() {
             _counter++;
-            _swipeDirection = SwipeDirection.RIGHT_TO_LEFT;
+            _swipeDirection = SwipeDirection.rightToLeft;
           });
           _animate();
         }
@@ -128,7 +129,7 @@ class OverBoardState extends State<OverBoard> with TickerProviderStateMixin {
                 Expanded(
                   child: Center(child: LayoutBuilder(
                     builder: (context, constraints) {
-                      _bulletContainerWidth = constraints.maxWidth - 40.0;
+                      bulletContainerWidth = constraints.maxWidth - 40.0;
                       return Container(
                         padding: const EdgeInsets.all(20.0),
                         child: ((widget.showBullets ?? true)
@@ -141,14 +142,14 @@ class OverBoardState extends State<OverBoard> with TickerProviderStateMixin {
                                   children: <Widget>[
                                     for (int i = 0; i < _total; i++)
                                       Padding(
-                                        padding: EdgeInsets.all(_bulletPadding),
+                                        padding: EdgeInsets.all(bulletPadding),
                                         child: AnimatedContainer(
-                                            duration:
-                                                const Duration(milliseconds: 150),
-                                            height: _bulletSize,
+                                            duration: const Duration(
+                                                milliseconds: 150),
+                                            height: bulletSize,
                                             width: (i == _counter)
-                                                ? _bulletSize * 2
-                                                : _bulletSize,
+                                                ? bulletSize * 2
+                                                : bulletSize,
                                             decoration: BoxDecoration(
                                                 color: (i == _counter)
                                                     ? PRIMARY_COLOR
@@ -333,7 +334,7 @@ class OverBoardState extends State<OverBoard> with TickerProviderStateMixin {
 
   _next() {
     setState(() {
-      _swipeDirection = SwipeDirection.RIGHT_TO_LEFT;
+      _swipeDirection = SwipeDirection.rightToLeft;
       _last = _counter;
       _counter++;
     });
@@ -342,7 +343,7 @@ class OverBoardState extends State<OverBoard> with TickerProviderStateMixin {
 
   _skip() {
     setState(() {
-      _swipeDirection = SwipeDirection.SKIP_TO_LAST;
+      _swipeDirection = SwipeDirection.skipToLast;
       _last = _counter;
       _counter = _total - 1;
     });
@@ -352,21 +353,21 @@ class OverBoardState extends State<OverBoard> with TickerProviderStateMixin {
   _animate() {
     _animator.getController().forward(from: 0.0);
 
-    double bulletDimension = (_bulletPadding * 2) + (_bulletSize);
+    double bulletDimension = (bulletPadding * 2) + (bulletSize);
     double scroll = bulletDimension * _counter;
     double maxScroll = bulletDimension * _total - 1;
-    if (scroll > _bulletContainerWidth &&
-        _swipeDirection == SwipeDirection.RIGHT_TO_LEFT) {
+    if (scroll > bulletContainerWidth &&
+        _swipeDirection == SwipeDirection.rightToLeft) {
       double scrollDistance =
-          (((scroll - _bulletContainerWidth) ~/ bulletDimension) + 1) *
+          (((scroll - bulletContainerWidth) ~/ bulletDimension) + 1) *
               bulletDimension;
       _scrollController.animateTo(scrollDistance,
           curve: Curves.easeIn, duration: const Duration(milliseconds: 100));
-    } else if (scroll < (maxScroll - _bulletContainerWidth) &&
-        _swipeDirection == SwipeDirection.LEFT_TO_RIGHT) {
+    } else if (scroll < (maxScroll - bulletContainerWidth) &&
+        _swipeDirection == SwipeDirection.leftToRight) {
       _scrollController.animateTo(scroll,
           curve: Curves.easeIn, duration: const Duration(milliseconds: 100));
-    } else if (_swipeDirection == SwipeDirection.SKIP_TO_LAST) {
+    } else if (_swipeDirection == SwipeDirection.skipToLast) {
       _scrollController.animateTo(maxScroll,
           curve: Curves.easeIn, duration: const Duration(milliseconds: 100));
     }
@@ -383,7 +384,10 @@ class AnimatedBoard extends StatelessWidget {
   Widget build(BuildContext context) {
     return Transform(
       transform: Matrix4.translationValues(
-          0.0, 50.0 * (1.0 - animator!.getAnimator().value), 0.0),
+        0.0,
+        50.0 * (1.0 - animator!.getAnimator().value),
+        0.0,
+      ),
       child: Padding(
         padding: const EdgeInsets.only(bottom: 25.0),
         child: child,
