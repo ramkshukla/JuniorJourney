@@ -1,32 +1,19 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_tts/flutter_tts.dart';
 import 'package:flutter/services.dart';
-import 'package:junior_journey/screen/poems_main.dart';
+import 'package:junior_journey/english/view/widgets/poems_main.dart';
 
-class Poems extends StatelessWidget {
+class Poems extends StatefulWidget {
   final int index;
-  const Poems({required this.index, super.key});
+  const Poems({super.key, required this.index});
   @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      home: TtsPage(index: index),
-    );
-  }
+  PoemsState createState() => PoemsState();
 }
 
-class TtsPage extends StatefulWidget {
-  final int index;
-  const TtsPage({super.key, required this.index});
-  @override
-  _TtsPageState createState() => _TtsPageState(index: index);
-}
-
-class _TtsPageState extends State<TtsPage> {
-  final int index;
-  _TtsPageState({required this.index});
+class PoemsState extends State<Poems> {
   late String background;
   late String poem;
-  bool text_visibility = true;
+  bool textVisibility = true;
   final List<String> poems = [
     "Twinkle, twinkle, little star.\n How I wonder what you are.\n Up above the world so high.\n Like a diamond in the sky.\n Twinkle, twinkle, little star.\n How I wonder what you are.\n",
     "Rain, rain, go away,\n Come again another day.\n Little Alex wants to play,\n rain, rain, go away.\n",
@@ -46,32 +33,42 @@ class _TtsPageState extends State<TtsPage> {
       DeviceOrientation.landscapeLeft,
     ]);
     setState(() {
-      if (index == 1) {
+      if (widget.index == 1) {
         poem = poems[0];
         background = 'poem_one_bg';
-        text_visibility = true;
-      } else if (index == 2) {
+        textVisibility = true;
+      } else if (widget.index == 2) {
         poem = poems[1];
         background = 'poem_two_bg';
-        text_visibility = true;
-      } else if (index == 3) {
+        textVisibility = true;
+      } else if (widget.index == 3) {
         poem = poems[2];
         background = 'poem_three_bg';
-        text_visibility = false;
-      } else if (index == 4) {
+        textVisibility = false;
+      } else if (widget.index == 4) {
         poem = poems[3];
         background = 'poem_four_bg';
-        text_visibility = false;
-      } else if (index == 5) {
+        textVisibility = false;
+      } else if (widget.index == 5) {
         poem = poems[4];
         background = 'poem_five_bg';
-        text_visibility = false;
-      } else if (index == 6) {
+        textVisibility = false;
+      } else if (widget.index == 6) {
         poem = poems[5];
         background = 'poem_six_bg';
-        text_visibility = true;
+        textVisibility = true;
       }
     });
+  }
+
+  Future<void> pauseFluttertts() async {
+    await flutterTts.pause();
+  }
+
+  @override
+  void dispose() {
+    pauseFluttertts();
+    super.dispose();
   }
 
   @override
@@ -97,7 +94,8 @@ class _TtsPageState extends State<TtsPage> {
                     onTap: () {
                       Navigator.push(
                         context,
-                        MaterialPageRoute(builder: (context) => const PoemsMain()),
+                        MaterialPageRoute(
+                            builder: (context) => const PoemsMain()),
                       );
 
                       // Handle back labelLarge tap
@@ -116,7 +114,7 @@ class _TtsPageState extends State<TtsPage> {
               child: Column(
                 children: [
                   Visibility(
-                    visible: text_visibility,
+                    visible: textVisibility,
                     child: Text(
                       poem,
                       style: const TextStyle(

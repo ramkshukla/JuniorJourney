@@ -1,30 +1,28 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_tts/flutter_tts.dart';
-import 'package:junior_journey/screen/alphabet_main.dart';
+import 'package:junior_journey/english/view/english_alphabet.dart';
 
-class AlphabetOne extends StatelessWidget {
+class AlphabetOne extends StatefulWidget {
   const AlphabetOne({super.key});
 
   @override
-  Widget build(BuildContext context) {
-    return const MaterialApp(
-      debugShowCheckedModeBanner: false,
-      home: DrawingPage(),
-    );
-  }
+  AlphabetOneState createState() => AlphabetOneState();
 }
 
-class DrawingPage extends StatefulWidget {
-  const DrawingPage({super.key});
+class AlphabetOneState extends State<AlphabetOne> {
+  final FlutterTts flutterTts = FlutterTts();
+
+  List<bool> isAlphabetColored = List.generate(26, (index) => false);
 
   @override
-  _DrawingPageState createState() => _DrawingPageState();
-}
+  void dispose() {
+    pauseFluttertts();
+    super.dispose();
+  }
 
-class _DrawingPageState extends State<DrawingPage> {
-  final FlutterTts flutterTts = FlutterTts(); // TTS plugin instance
-  List<bool> isAlphabetColored =
-      List.generate(26, (index) => false); // Track colored alphabets
+  Future<void> pauseFluttertts() async {
+    await flutterTts.pause();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -34,31 +32,29 @@ class _DrawingPageState extends State<DrawingPage> {
         decoration: const BoxDecoration(
           image: DecorationImage(
             image: AssetImage(
-                'assets/images/green_background.jpg'), // Background image path
+              'assets/images/green_background.jpg',
+            ),
             fit: BoxFit.cover,
           ),
         ),
         child: Stack(
           children: [
-            //   Back labelLarge
             Positioned(
-              top: 10, // Adjust the top position as needed
-              left: -15, // Adjust the left position as needed
+              top: 10,
+              left: -15,
               child: GestureDetector(
                 onTap: () {
                   Navigator.push(
                     context,
-                    MaterialPageRoute(builder: (context) => const AlphabetMain()),
+                    MaterialPageRoute(
+                      builder: (context) => const EnglishAlphabet(),
+                    ),
                   );
-
-                  // Handle back labelLarge tap
                 },
-                child: Container(
-                  child: Image.asset(
-                    'assets/images/back_btn.png',
-                    height: 50,
-                    width: 120,
-                  ),
+                child: Image.asset(
+                  'assets/images/back_btn.png',
+                  height: 50,
+                  width: 120,
                 ),
               ),
             ),
@@ -71,7 +67,8 @@ class _DrawingPageState extends State<DrawingPage> {
                 children: [
                   Expanded(
                     child: GridView.builder(
-                      gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                      gridDelegate:
+                          const SliverGridDelegateWithFixedCrossAxisCount(
                         crossAxisCount: 5,
                       ),
                       itemCount: 26,

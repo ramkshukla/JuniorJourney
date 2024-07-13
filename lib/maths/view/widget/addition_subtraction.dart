@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_tts/flutter_tts.dart';
 import 'package:flutter/services.dart';
-import 'package:junior_journey/screen/maths_main.dart';
-import 'package:junior_journey/screen/next_and_back_bnt.dart';
+import 'package:junior_journey/maths/view/maths_main.dart';
+import 'package:junior_journey/data/next_and_back_bnt.dart';
 
 class AdditionAndSubtraction extends StatelessWidget {
   final String operator;
@@ -30,7 +30,7 @@ class MyHomePageState extends State<MyHomePage> {
   late List<int> firstNumber;
   late List<int> secondNumber;
   late int num;
-  late String operator_symbal;
+  late String operatorSymbal;
   Map<int, String> myMap = {
     1: 'one',
     2: 'two',
@@ -49,7 +49,7 @@ class MyHomePageState extends State<MyHomePage> {
   int total = 0;
 
   late String operatorName;
-  late bool visility_value;
+  late bool visilityValue;
 
   @override
   void initState() {
@@ -63,17 +63,17 @@ class MyHomePageState extends State<MyHomePage> {
         secondNumber = [2, 3, 3, 2, 2, 3, 2, 5];
         total = firstNumber[index] + secondNumber[index];
         operatorName = "plus";
-        operator_symbal = '+';
-        visility_value = true;
+        operatorSymbal = '+';
+        visilityValue = true;
         num = firstNumber[index];
       } else if (widget.operator == "Sub") {
         firstNumber = [2, 3, 5, 3, 4, 6, 5, 7];
         secondNumber = [1, 1, 2, 2, 2, 3, 2, 3];
         operatorName = "minus";
         total = firstNumber[index] - secondNumber[index];
-        visility_value = false;
+        visilityValue = false;
         num = total;
-        operator_symbal = '-';
+        operatorSymbal = '-';
       }
     });
     super.initState();
@@ -83,6 +83,16 @@ class MyHomePageState extends State<MyHomePage> {
   Future<void> speak() async {
     await flutterTts.speak(
         '${firstNumber[index]} rabbit $operatorName ${secondNumber[index]} rabbit is equal to $total rabbit');
+  }
+
+  Future<void> pauseFluttertts() async {
+    await flutterTts.pause();
+  }
+
+  @override
+  void dispose() {
+    pauseFluttertts();
+    super.dispose();
   }
 
   @override
@@ -110,7 +120,8 @@ class MyHomePageState extends State<MyHomePage> {
                       onTap: () {
                         Navigator.push(
                           context,
-                          MaterialPageRoute(builder: (context) => const MathsMain()),
+                          MaterialPageRoute(
+                              builder: (context) => const MathsMain()),
                         );
 
                         // Handle back labelLarge tap
@@ -157,7 +168,7 @@ class MyHomePageState extends State<MyHomePage> {
                       key: _key,
                       children: [
                         Text(
-                          operator_symbal,
+                          operatorSymbal,
                           style: const TextStyle(
                               fontSize: 50,
                               color: Color.fromRGBO(164, 5, 5, 1),
@@ -218,7 +229,7 @@ class MyHomePageState extends State<MyHomePage> {
                                 ],
                               ),
                               Visibility(
-                                visible: visility_value,
+                                visible: visilityValue,
                                 child: Row(
                                   mainAxisAlignment: MainAxisAlignment.end,
                                   children: [

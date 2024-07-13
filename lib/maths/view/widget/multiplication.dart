@@ -2,17 +2,15 @@ import 'package:flutter/material.dart';
 import 'package:animated_text_kit/animated_text_kit.dart';
 import 'package:flutter_tts/flutter_tts.dart';
 import 'package:flutter/services.dart';
-import 'package:junior_journey/screen/next_and_back_bnt.dart';
+import 'package:junior_journey/data/next_and_back_bnt.dart';
 
 class Multiplication extends StatelessWidget {
   const Multiplication({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
-      home: Scaffold(
-        body: RabbitCountScreen(),
-      ),
+    return const Scaffold(
+      body: RabbitCountScreen(),
     );
   }
 }
@@ -21,10 +19,10 @@ class RabbitCountScreen extends StatefulWidget {
   const RabbitCountScreen({super.key});
 
   @override
-  _RabbitCountScreenState createState() => _RabbitCountScreenState();
+  RabbitCountScreenState createState() => RabbitCountScreenState();
 }
 
-class _RabbitCountScreenState extends State<RabbitCountScreen>
+class RabbitCountScreenState extends State<RabbitCountScreen>
     with TickerProviderStateMixin {
   final GlobalKey _columnKey = GlobalKey();
   bool _isVisibleFourth = false;
@@ -33,7 +31,7 @@ class _RabbitCountScreenState extends State<RabbitCountScreen>
   int group = 3;
   int _currentIndex = 0;
   late AnimationController _controller;
-  late Animation<double> _animation;
+  late Animation<double> animation;
   late FlutterTts flutterTts;
   bool isSpeaking = false;
   List<String> texts = [
@@ -77,7 +75,7 @@ class _RabbitCountScreenState extends State<RabbitCountScreen>
       duration: const Duration(seconds: 0),
     );
 
-    _animation = Tween<double>(begin: 0, end: 1).animate(_controller);
+    animation = Tween<double>(begin: 0, end: 1).animate(_controller);
 
     flutterTts = FlutterTts();
     flutterTts.setLanguage('en-IN');
@@ -127,8 +125,13 @@ class _RabbitCountScreenState extends State<RabbitCountScreen>
     });
   }
 
+  Future<void> pauseFluttertts() async {
+    await flutterTts.pause();
+  }
+
   @override
   void dispose() {
+    pauseFluttertts();
     _controller.dispose();
     stop();
     super.dispose();
@@ -267,7 +270,6 @@ class _RabbitCountScreenState extends State<RabbitCountScreen>
         _textKey = UniqueKey(); // Change the key to rebuild WidgetShowText
       }
     });
-    print("next function is called ");
   }
 
   void backFunction() {
@@ -297,7 +299,6 @@ class _RabbitCountScreenState extends State<RabbitCountScreen>
         _textKey = UniqueKey(); // Change the key to rebuild WidgetShowText
       }
     });
-    print("back function is called");
   }
 
   // void _nextText() {
@@ -331,9 +332,7 @@ class WidgetShowText extends StatelessWidget {
                 speed: const Duration(milliseconds: 80),
               ),
             ],
-            onTap: () {
-              print("Tap Event");
-            },
+            onTap: () {},
           ),
         ),
       ),

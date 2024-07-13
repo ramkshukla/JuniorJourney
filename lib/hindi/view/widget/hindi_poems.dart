@@ -1,29 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_tts/flutter_tts.dart';
 import 'package:flutter/services.dart';
-import 'package:junior_journey/screen/hindi_poems_main.dart';
+import 'package:junior_journey/hindi/view/widget/hindi_poems_main.dart';
 
-class HindiPoems extends StatelessWidget {
+class HindiPoems extends StatefulWidget {
   final int index;
-  const HindiPoems({required this.index, super.key});
+  const HindiPoems({super.key, required this.index});
   @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      home: TtsPage(index: index),
-    );
-  }
+  HindiPoemsState createState() => HindiPoemsState();
 }
 
-class TtsPage extends StatefulWidget {
-  final int index;
-  const TtsPage({super.key, required this.index});
-  @override
-  _TtsPageState createState() => _TtsPageState(index: index);
-}
-
-class _TtsPageState extends State<TtsPage> {
-  final int index;
-  _TtsPageState({required this.index});
+class HindiPoemsState extends State<HindiPoems> {
   late String background;
   late String poem;
   final List<String> poems = [
@@ -45,22 +32,22 @@ class _TtsPageState extends State<TtsPage> {
       DeviceOrientation.portraitDown,
     ]);
     setState(() {
-      if (index == 1) {
+      if (widget.index == 1) {
         poem = poems[0];
         background = 'poem_one_bg1';
-      } else if (index == 2) {
+      } else if (widget.index == 2) {
         poem = poems[1];
         background = 'poem_two_bg1';
-      } else if (index == 3) {
+      } else if (widget.index == 3) {
         poem = poems[2];
         background = 'poem_three_bg1';
-      } else if (index == 4) {
+      } else if (widget.index == 4) {
         poem = poems[3];
         background = 'poem_four_bg1';
-      } else if (index == 5) {
+      } else if (widget.index == 5) {
         poem = poems[4];
         background = 'poem_five_bg1';
-      } else if (index == 6) {
+      } else if (widget.index == 6) {
         poem = poems[5];
         background = 'poem_six_bg1';
       }
@@ -74,7 +61,8 @@ class _TtsPageState extends State<TtsPage> {
         decoration: BoxDecoration(
           image: DecorationImage(
             image: AssetImage(
-                'assets/images2/$background.jpg'), // Background image path
+              'assets/images2/$background.jpg',
+            ), // Background image path
             fit: BoxFit.cover,
           ),
         ),
@@ -137,9 +125,13 @@ class _TtsPageState extends State<TtsPage> {
     await flutterTts.speak(poem);
   }
 
+  Future<void> pauseFluttertts() async {
+    await flutterTts.pause();
+  }
+
   @override
   void dispose() {
-    // TODO: implement dispose
+    pauseFluttertts();
     SystemChrome.setPreferredOrientations([
       DeviceOrientation.landscapeRight,
       DeviceOrientation.landscapeLeft,

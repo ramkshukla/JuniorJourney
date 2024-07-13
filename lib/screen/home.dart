@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:junior_journey/screen/HindiMain.dart';
-import 'package:junior_journey/screen/alphabet_main.dart';
-import 'package:junior_journey/screen/maths_main.dart';
+import 'package:junior_journey/english/view/english_alphabet.dart';
+import 'package:junior_journey/hindi/view/hindi_main.dart';
+import 'package:junior_journey/maths/view/maths_main.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
@@ -49,6 +49,7 @@ class AlphabetMainScreenState extends State<AlphabetMainScreen> {
   Widget build(BuildContext context) {
     return Container(
       decoration: const BoxDecoration(
+        color: Colors.white,
         image: DecorationImage(
           image: AssetImage('assets/images/green_background.jpg'),
           fit: BoxFit.cover,
@@ -67,17 +68,23 @@ class AlphabetMainScreenState extends State<AlphabetMainScreen> {
                 if (index == 0) {
                   Navigator.push(
                     context,
-                    MaterialPageRoute(builder: (context) => const AlphabetMain()),
+                    MaterialPageRoute(
+                      builder: (context) => const EnglishAlphabet(),
+                    ),
                   );
                 } else if (index == 2) {
                   Navigator.push(
                     context,
-                    MaterialPageRoute(builder: (context) => const MathsMain()),
+                    MaterialPageRoute(
+                      builder: (context) => const MathsMain(),
+                    ),
                   );
                 } else if (index == 1) {
                   Navigator.push(
                     context,
-                    MaterialPageRoute(builder: (context) => const HindiMain()),
+                    MaterialPageRoute(
+                      builder: (context) => const HindiMain(),
+                    ),
                   );
                 }
               },
@@ -91,10 +98,11 @@ class AlphabetMainScreenState extends State<AlphabetMainScreen> {
                     child: Padding(
                       padding: const EdgeInsets.all(5),
                       child: ClipRRect(
-                        borderRadius: const BorderRadius.all(Radius.circular(15)),
+                        borderRadius:
+                            const BorderRadius.all(Radius.circular(15)),
                         child: Image.asset(
-                          'assets/images/${images[index]}.png', // Assuming images are named as 1.jpg, 2.jpg, etc.
-                          height: 220, // Adjust height as needed
+                          'assets/images/${images[index]}.png',
+                          height: 220,
                         ),
                       ),
                     ),

@@ -7,17 +7,21 @@ class TablesMain extends StatelessWidget {
   const TablesMain({required this.language, super.key});
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      home: TablesMainScreen(
-        language: language,
-      ),
+    return TablesMainScreen(
+      language: language,
     );
   }
 }
 
-class TablesMainScreen extends StatelessWidget {
+class TablesMainScreen extends StatefulWidget {
   final String language;
-  TablesMainScreen({super.key, required this.language});
+  const TablesMainScreen({super.key, required this.language});
+
+  @override
+  State<TablesMainScreen> createState() => _TablesMainScreenState();
+}
+
+class _TablesMainScreenState extends State<TablesMainScreen> {
   final List<String> numbers = [
     'zero',
     'one',
@@ -33,35 +37,41 @@ class TablesMainScreen extends StatelessWidget {
 
   final FlutterTts flutterTts = FlutterTts();
 
+  Future<void> pauseFluttertts() async {
+    await flutterTts.pause();
+  }
+
+  @override
+  void dispose() {
+    pauseFluttertts();
+    super.dispose();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Container(
-        child: GridView.builder(
-          gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-            crossAxisCount: 5, // 10 columns
-          ),
-          itemCount: 19, // Total numbers from 1 to 100
-          itemBuilder: (BuildContext context, int index) {
-            int number = index + 2;
-            return Container(
-              child: GestureDetector(
-                onTap: () {
-                  // _speakNumber(number);
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                        builder: (context) => Tables(
-                              index: number.toString(),
-                              language: language,
-                            )),
-                  );
-                },
-                child: _buildNumberImage(number),
-              ),
-            );
-          },
+      body: GridView.builder(
+        gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+          crossAxisCount: 5, // 10 columns
         ),
+        itemCount: 19, // Total numbers from 1 to 100
+        itemBuilder: (BuildContext context, int index) {
+          int number = index + 2;
+          return GestureDetector(
+            onTap: () {
+              // _speakNumber(number);
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                    builder: (context) => MultiplicationTable(
+                          index: number.toString(),
+                          language: widget.language,
+                        )),
+              );
+            },
+            child: _buildNumberImage(number),
+          );
+        },
       ),
     );
   }
@@ -101,9 +111,5 @@ class TablesMainScreen extends StatelessWidget {
       height: 70, // Adjust height as needed
       width: 70, // Adjust width as needed
     );
-  }
-
-  void _speakNumber(int number) async {
-    await flutterTts.speak(number.toString());
   }
 }

@@ -1,23 +1,18 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_tts/flutter_tts.dart';
 
-class NumberDisplay extends StatelessWidget {
+// ignore: must_be_immutable
+class NumberDisplay extends StatefulWidget {
   final String language;
-  const NumberDisplay({required this.language, super.key});
+  const NumberDisplay({super.key, required this.language});
+
   @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      home: NumberDisplayScreen(
-        language: language,
-      ),
-    );
-  }
+  State<NumberDisplay> createState() => _NumberDisplayState();
 }
 
-class NumberDisplayScreen extends StatelessWidget {
-  final String language;
+class _NumberDisplayState extends State<NumberDisplay> {
   bool setLanguage = false;
-  NumberDisplayScreen({super.key, required this.language});
+
   final List<String> numbers = [
     'zero',
     'one',
@@ -33,25 +28,33 @@ class NumberDisplayScreen extends StatelessWidget {
 
   final FlutterTts flutterTts = FlutterTts();
 
+  Future<void> pauseFluttertts() async {
+    await flutterTts.pause();
+  }
+
+  @override
+  void dispose() {
+    pauseFluttertts();
+    super.dispose();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Container(
-        child: GridView.builder(
-          gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-            crossAxisCount: 5, // 10 columns
-          ),
-          itemCount: 100, // Total numbers from 1 to 100
-          itemBuilder: (BuildContext context, int index) {
-            int number = index + 1;
-            return GestureDetector(
-              onTap: () {
-                _speakNumber(number);
-              },
-              child: _buildNumberImage(number, index),
-            );
-          },
+      body: GridView.builder(
+        gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+          crossAxisCount: 5, // 10 columns
         ),
+        itemCount: 100, // Total numbers from 1 to 100
+        itemBuilder: (BuildContext context, int index) {
+          int number = index + 1;
+          return GestureDetector(
+            onTap: () {
+              _speakNumber(number);
+            },
+            child: _buildNumberImage(number, index),
+          );
+        },
       ),
     );
   }
@@ -68,7 +71,7 @@ class NumberDisplayScreen extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           for (int i = 0; i < digits.length; i++)
-            if (i == 0) // Special case for digit 0 following digit 1
+            if (i == 0)
               _buildDigitImage(digits[i])
             else if (i == 1)
               //_buildDigitImage(digits[i]),
@@ -95,7 +98,7 @@ class NumberDisplayScreen extends StatelessWidget {
 
   void _speakNumber(int number) async {
     if (setLanguage == false) {
-      if (language == "en") {
+      if (widget.language == "en") {
         await flutterTts.setLanguage('en-IN');
         await flutterTts.setSpeechRate(0.5);
         await flutterTts.setPitch(1.0);

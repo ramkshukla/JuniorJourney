@@ -1,34 +1,18 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:junior_journey/screen/hindi_poems.dart';
+import 'package:junior_journey/screen/poems.dart';
 
-class HindiPoemsMain extends StatelessWidget {
-  const HindiPoemsMain({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return const MaterialApp(
-      debugShowCheckedModeBanner: false,
-      home: Scaffold(
-        body: PoemsMainScreen(),
-      ),
-    );
-  }
-}
-
-class PoemsMainScreen extends StatefulWidget {
-  const PoemsMainScreen({super.key});
+class PoemsMain extends StatefulWidget {
+  const PoemsMain({super.key});
 
   @override
-  _PoemsMainScreenState createState() => _PoemsMainScreenState();
+  PoemsMainState createState() => PoemsMainState();
 }
 
-class _PoemsMainScreenState extends State<PoemsMainScreen> {
+class PoemsMainState extends State<PoemsMain> {
   @override
   void initState() {
     super.initState();
-    // Start the automatic progression
-
     SystemChrome.setPreferredOrientations([
       DeviceOrientation.landscapeRight,
       DeviceOrientation.landscapeLeft,
@@ -41,20 +25,20 @@ class _PoemsMainScreenState extends State<PoemsMainScreen> {
   }
 
   final List<String> items = [
-    'मोटूराम',
-    'सोने की चिड़िया',
-    'प्यासा कौआ',
-    'उड़ी पतंग',
-    'सेब',
-    'डाकिया आया'
+    'Twinkle, twinkle, little star',
+    'Rain, rain, go away',
+    'The Silly Squirrel',
+    'Rainbow Magic',
+    'Funny Frog',
+    'Buzzy Bee'
   ];
   final List<String> images = [
-    'poem_one_logo1',
-    'poem_two_logo1',
-    'poem_three_logo1',
-    'poem_four_logo1',
-    'poem_five_logo1',
-    'poem_six_logo1'
+    'poem_one_logo',
+    'poem_two_logo',
+    'poem_three_logo',
+    'poem_four_logo',
+    'poem_five_logo',
+    'poem_six_logo'
   ];
 
   @override
@@ -73,7 +57,7 @@ class _PoemsMainScreenState extends State<PoemsMainScreen> {
         itemBuilder: (BuildContext context, int index) {
           return Center(
             child: Container(
-              margin: const EdgeInsets.all(35),
+              margin: const EdgeInsets.all(40),
               child: Padding(
                 padding: const EdgeInsets.all(8.0),
                 child: GestureDetector(
@@ -82,24 +66,30 @@ class _PoemsMainScreenState extends State<PoemsMainScreen> {
                     Navigator.push(
                       context,
                       MaterialPageRoute(
-                          builder: (context) => HindiPoems(index: index + 1)),
+                          builder: (context) => Poems(index: index + 1)),
                     );
                   },
                   child: Card(
                     elevation: 4.0,
                     child: Container(
-                      width: 230.0,
+                      width: 220.0,
                       alignment: Alignment.center,
                       child: Column(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
-                          Image.asset(
-                            'assets/images2/${images[index]}.jpg', // Assuming images are named as 1.jpg, 2.jpg, etc.
-                            height: 200, // Adjust height as needed
+                          ClipRRect(
+                            borderRadius:
+                                const BorderRadius.all(Radius.circular(15)),
+                            child: Image.asset(
+                              'assets/images2/${images[index]}.png', // Assuming images are named as 1.jpg, 2.jpg, etc.
+                              height: 180,
+                              // Adjust height as needed
+                            ),
                           ),
                           Text(
                             items[index],
-                            style: const TextStyle(color: Colors.grey, fontSize: 18),
+                            style: const TextStyle(
+                                color: Colors.grey, fontSize: 18),
                           )
                         ],
                       ),

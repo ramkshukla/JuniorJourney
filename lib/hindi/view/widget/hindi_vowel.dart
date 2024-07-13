@@ -1,142 +1,63 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_tts/flutter_tts.dart';
 import 'package:flutter/services.dart';
-import 'package:junior_journey/screen/HindiMain.dart';
+import 'package:junior_journey/hindi/view/hindi_main.dart';
 
-class HindiVarnamala extends StatelessWidget {
-  const HindiVarnamala({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return const MaterialApp(
-      home: MyHomePage(),
-    );
-  }
-}
-
-class MyHomePage extends StatefulWidget {
-  const MyHomePage({super.key});
+class HindiVowel extends StatefulWidget {
+  const HindiVowel({super.key});
 
   @override
-  _MyHomePageState createState() => _MyHomePageState();
+  HindiVowelState createState() => HindiVowelState();
 }
 
-class _MyHomePageState extends State<MyHomePage> {
+class HindiVowelState extends State<HindiVowel> {
   FlutterTts flutterTts = FlutterTts();
   List<String> letters = [
     'zero',
-    'ka',
-    'ka1',
-    'kha',
-    'kha1',
-    'ga',
-    'ga1',
-    'gha',
-    'gha1',
-    'anga',
-    'pd1',
-    'cha',
-    'cha1',
-    'chha',
-    'chha1',
-    'ja',
-    'ja1',
-    'jha',
-    'jha1',
-    'nia',
-    'pd1',
-    'taa',
-    'taa1',
-    'thaa',
-    'thaa1',
-    'da',
-    'da1',
-    'dhaa',
-    'dhaa1',
-    'ana',
-    'pd1',
-    'ta',
-    'ta1',
-    'tha',
-    'tha1',
-    'daa',
-    'daa1',
-    'dha',
-    'dha1',
-    'na',
-    'na1',
-    'pa',
-    'pa1',
-    'pha',
-    'pha1',
-    'ba',
-    'ba1',
-    'bha',
-    'bha1',
-    'ma',
-    'ma1',
-    'ya',
-    'ya1',
-    'ra',
-    'ra1',
-    'la',
-    'la1',
-    'vaa',
-    'va1',
-    'sha',
-    'sha1',
-    'shaa',
-    'shaa1',
-    'sa',
-    'sa1',
-    'ha',
-    'ha1',
-    'ksha',
-    'ksha1',
-    'traa',
-    'tra1',
-    'gya',
-    'gya1'
+    'chhota aa',
+    'a1',
+    'bada aa',
+    'aa1',
+    'chhoti ee',
+    'i1',
+    'badi ee',
+    'ee1',
+    'chhota uuu',
+    'u1',
+    'bada uuu',
+    'oo1',
+    'ri',
+    'ri1',
+    'ye',
+    'e1',
+    'ai',
+    'ai1',
+    'o',
+    'o1',
+    'au',
+    'au1',
+    'an',
+    'an1',
+    'ah',
+    'pd1'
   ];
   List<String> objects = [
     'zero',
-    'कबूतर',
-    'खरगोश',
-    'गमला',
-    'घड़ी',
-    'कुछ नहीं',
-    'चम्मच',
-    'छाता',
-    'जहाज',
-    'झंडा',
-    'कुछ नहीं',
-    'टमाटर',
-    'ठहरो',
-    'डमरू',
-    'ढक्कन',
-    'कुछ नहीं',
-    'तरबूज',
-    'थरमस',
-    'दवात',
-    'धनुष',
-    'नल',
-    'पतंग',
-    'फल',
-    'बकरी',
-    'भालू',
-    'मछली',
-    'यज्ञ',
-    'रथ',
-    'लड़का',
-    'वकील',
-    'शलजम',
-    'षट्कोण',
-    'सपेरा',
-    'हाथी',
-    'क्षत्रिय',
-    'त्रिशूल',
-    'ज्ञानी'
+    'अनार',
+    'आम',
+    'इमली',
+    'ईख ',
+    'उल्लू',
+    'ऊन',
+    'ऋषि',
+    'एड़ी',
+    'ऐनक',
+    'ओखली',
+    'औरत',
+    'अंगूर',
+    'कुछ नहीं'
   ];
+
   int currentIndex = 1;
   double height = 200; // Initial height
   double width = 150; // Initial width
@@ -155,6 +76,16 @@ class _MyHomePageState extends State<MyHomePage> {
       DeviceOrientation.landscapeRight,
       DeviceOrientation.landscapeLeft,
     ]);
+  }
+
+  Future<void> pauseFluttertts() async {
+    await flutterTts.pause();
+  }
+
+  @override
+  void dispose() {
+    pauseFluttertts();
+    super.dispose();
   }
 
   @override
@@ -180,7 +111,8 @@ class _MyHomePageState extends State<MyHomePage> {
                     onTap: () {
                       Navigator.push(
                         context,
-                        MaterialPageRoute(builder: (context) => const HindiMain()),
+                        MaterialPageRoute(
+                            builder: (context) => const HindiMain()),
                       );
 
                       // Handle back labelLarge tap

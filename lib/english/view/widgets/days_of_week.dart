@@ -2,27 +2,14 @@ import 'package:flutter/material.dart';
 import 'package:flutter_tts/flutter_tts.dart';
 import 'package:flutter/services.dart';
 
-class DaysOfWeek extends StatelessWidget {
+class DaysOfWeek extends StatefulWidget {
   const DaysOfWeek({super.key});
 
   @override
-  Widget build(BuildContext context) {
-    return const MaterialApp(
-      home: Scaffold(
-        body: DaysOfWeekScreen(),
-      ),
-    );
-  }
+  DaysOfWeekState createState() => DaysOfWeekState();
 }
 
-class DaysOfWeekScreen extends StatefulWidget {
-  const DaysOfWeekScreen({super.key});
-
-  @override
-  _DaysOfWeekState createState() => _DaysOfWeekState();
-}
-
-class _DaysOfWeekState extends State<DaysOfWeekScreen> {
+class DaysOfWeekState extends State<DaysOfWeek> {
   FlutterTts flutterTts = FlutterTts();
   List<String> daysOfWeek = [
     'Sunday',
@@ -65,6 +52,10 @@ class _DaysOfWeekState extends State<DaysOfWeekScreen> {
     }
   }
 
+  Future<void> pauseFluttertts() async {
+    await flutterTts.pause();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Stack(
@@ -105,6 +96,7 @@ class _DaysOfWeekState extends State<DaysOfWeekScreen> {
 
   @override
   void dispose() {
+    pauseFluttertts();
     SystemChrome.setPreferredOrientations([
       DeviceOrientation.landscapeRight,
       DeviceOrientation.landscapeLeft,

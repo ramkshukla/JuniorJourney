@@ -1,27 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_tts/flutter_tts.dart';
 import 'package:flutter/services.dart';
-import 'package:junior_journey/screen/alphabet_main.dart';
+import 'package:junior_journey/english/view/english_alphabet.dart';
 
-class Consonents extends StatelessWidget {
+class Consonents extends StatefulWidget {
   const Consonents({super.key});
 
   @override
-  Widget build(BuildContext context) {
-    return const MaterialApp(
-      home: MyHomePage(),
-    );
-  }
+  ConsonentsState createState() => ConsonentsState();
 }
 
-class MyHomePage extends StatefulWidget {
-  const MyHomePage({super.key});
-
-  @override
-  _MyHomePageState createState() => _MyHomePageState();
-}
-
-class _MyHomePageState extends State<MyHomePage> {
+class ConsonentsState extends State<Consonents> {
   FlutterTts flutterTts = FlutterTts();
   List<String> letters = [
     'zero',
@@ -102,11 +91,22 @@ class _MyHomePageState extends State<MyHomePage> {
   int currentIndex = 1;
   double height = 200;
   double width = 150;
+
   Future<void> speak(String text) async {
     await flutterTts.setLanguage('hi-IN');
     await flutterTts.setSpeechRate(0.5);
     await flutterTts.setPitch(1.0);
     await flutterTts.speak(text);
+  }
+
+  Future<void> pauseFluttertts() async {
+    await flutterTts.pause();
+  }
+
+  @override
+  void dispose() {
+    pauseFluttertts();
+    super.dispose();
   }
 
   @override
@@ -140,7 +140,8 @@ class _MyHomePageState extends State<MyHomePage> {
                   onTap: () {
                     Navigator.push(
                       context,
-                      MaterialPageRoute(builder: (context) => const AlphabetMain()),
+                      MaterialPageRoute(
+                          builder: (context) => const EnglishAlphabet()),
                     );
 
                     // Handle back labelLarge tap

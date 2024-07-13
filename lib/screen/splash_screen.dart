@@ -1,44 +1,48 @@
-// import 'dart:async';
+import 'dart:async';
 
-// import 'package:flutter/material.dart';
-// import 'package:junior_journey/config/constant.dart';
-// import 'package:junior_journey/screen/onboarding_page.dart';
+import 'package:flutter/material.dart';
+import 'package:junior_journey/config/assets_constant.dart';
+import 'package:junior_journey/screen/onboarding_page.dart';
 
-// class MyHomePage extends StatefulWidget {
-//   const MyHomePage({super.key});
+class SplashScreen extends StatefulWidget {
+  const SplashScreen({super.key});
 
-//   @override
-//   MyHomePageState createState() => MyHomePageState();
-// }
+  @override
+  SplashScreenState createState() => SplashScreenState();
+}
 
-// class MyHomePageState extends State<MyHomePage> {
-//   @override
-//   void initState() {
-//     "My Home Page Init called".logIt;
-//     super.initState();
-//     Timer(
-//       const Duration(seconds: 3),
-//       () => Navigator.pushReplacement(
-//         context,
-//         MaterialPageRoute(
-//           builder: (context) => const,
-//         ),
-//       ),
-//     );
-//   }
+class SplashScreenState extends State<SplashScreen> {
+  late Timer timer;
+  @override
+  void initState() {
+    timer = Timer(
+      const Duration(seconds: 3),
+      () => Navigator.pushReplacement(
+        context,
+        MaterialPageRoute(
+          builder: (context) => const OnboardingPage(),
+        ),
+      ),
+    );
+    super.initState();
+  }
 
-//   @override
-//   Widget build(BuildContext context) {
-//     return const Scaffold(
-//       body: Center(
-//         child: Text("Jounior Journey "),
-//       ),
-//     );
-//   }
-// }
+  @override
+  void dispose() {
+    timer.cancel();
+    super.dispose();
+  }
 
-//  Image.asset(
-//   AssetsConstant.juniorJourneyLogo,
-//   width: 200,
-//   height: 200,
-// ),
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      body: Center(
+        child: Image.asset(
+          AssetsConstant.juniorJourneyLogo,
+          width: 200,
+          height: 200,
+        ),
+      ),
+    );
+  }
+}

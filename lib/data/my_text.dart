@@ -1,65 +1,65 @@
 
-import 'package:flutter/material.dart';
+// import 'package:flutter/material.dart';
 
-class MyText{
+// class MyText{
 
-  static TextStyle? display4(BuildContext context){
-    return Theme.of(context).textTheme.displayLarge;
-  }
+//   static TextStyle? display4(BuildContext context){
+//     return Theme.of(context).textTheme.displayLarge;
+//   }
 
-  static TextStyle? display3(BuildContext context){
-    return Theme.of(context).textTheme.displayMedium;
-  }
+//   static TextStyle? display3(BuildContext context){
+//     return Theme.of(context).textTheme.displayMedium;
+//   }
 
-  static TextStyle? display2(BuildContext context){
-    return Theme.of(context).textTheme.displaySmall;
-  }
+//   static TextStyle? display2(BuildContext context){
+//     return Theme.of(context).textTheme.displaySmall;
+//   }
 
-  static TextStyle? display1(BuildContext context){
-    return Theme.of(context).textTheme.headlineLarge;
-  }
+//   static TextStyle? display1(BuildContext context){
+//     return Theme.of(context).textTheme.headlineLarge;
+//   }
 
-  static TextStyle? headline(BuildContext context){
-    return Theme.of(context).textTheme.headlineMedium;
-  }
+//   static TextStyle? headline(BuildContext context){
+//     return Theme.of(context).textTheme.headlineMedium;
+//   }
 
-  static TextStyle? title(BuildContext context){
-    return Theme.of(context).textTheme.headlineSmall;
-  }
+//   static TextStyle? title(BuildContext context){
+//     return Theme.of(context).textTheme.headlineSmall;
+//   }
 
-  static TextStyle medium(BuildContext context){
-    return Theme.of(context).textTheme.titleLarge!.copyWith(
-      fontSize: 18,
-    );
-  }
+//   static TextStyle medium(BuildContext context){
+//     return Theme.of(context).textTheme.titleLarge!.copyWith(
+//       fontSize: 18,
+//     );
+//   }
 
-  static TextStyle? subhead(BuildContext context){
-    return Theme.of(context).textTheme.titleLarge;
-  }
+//   static TextStyle? subhead(BuildContext context){
+//     return Theme.of(context).textTheme.titleLarge;
+//   }
 
-  static TextStyle? body2(BuildContext context){
-    return Theme.of(context).textTheme.bodyLarge;
-  }
+//   static TextStyle? body2(BuildContext context){
+//     return Theme.of(context).textTheme.bodyLarge;
+//   }
 
-  static TextStyle? body1(BuildContext context){
-    return Theme.of(context).textTheme.bodyMedium;
-  }
+//   static TextStyle? body1(BuildContext context){
+//     return Theme.of(context).textTheme.bodyMedium;
+//   }
 
-  static TextStyle? bodySmall(BuildContext context){
-    return Theme.of(context).textTheme.bodySmall;
-  }
+//   static TextStyle? bodySmall(BuildContext context){
+//     return Theme.of(context).textTheme.bodySmall;
+//   }
 
-  static TextStyle? labelLarge(BuildContext context){
-    return Theme.of(context).textTheme.labelLarge!.copyWith(
-        letterSpacing: 1
-    );
-  }
+//   static TextStyle? labelLarge(BuildContext context){
+//     return Theme.of(context).textTheme.labelLarge!.copyWith(
+//         letterSpacing: 1
+//     );
+//   }
 
-  static TextStyle? subtitle(BuildContext context){
-    return Theme.of(context).textTheme.titleMedium;
-  }
+//   static TextStyle? subtitle(BuildContext context){
+//     return Theme.of(context).textTheme.titleMedium;
+//   }
 
-  static TextStyle? labelSmall(BuildContext context){
-    return Theme.of(context).textTheme.labelSmall;
-  }
-}
+//   static TextStyle? labelSmall(BuildContext context){
+//     return Theme.of(context).textTheme.labelSmall;
+//   }
+// }

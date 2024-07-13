@@ -2,27 +2,14 @@ import 'package:flutter/material.dart';
 import 'package:flutter_tts/flutter_tts.dart';
 import 'package:flutter/services.dart';
 
-class MonthOfYear extends StatelessWidget {
+class MonthOfYear extends StatefulWidget {
   const MonthOfYear({super.key});
 
   @override
-  Widget build(BuildContext context) {
-    return const MaterialApp(
-      home: Scaffold(
-        body: MonthOfYearScreen(),
-      ),
-    );
-  }
+  MonthOfYearState createState() => MonthOfYearState();
 }
 
-class MonthOfYearScreen extends StatefulWidget {
-  const MonthOfYearScreen({super.key});
-
-  @override
-  _DaysOfWeekState createState() => _DaysOfWeekState();
-}
-
-class _DaysOfWeekState extends State<MonthOfYearScreen> {
+class MonthOfYearState extends State<MonthOfYear> {
   String background = 'nameOfMonths';
   FlutterTts flutterTts = FlutterTts();
   List<String> daysOfWeek = [
@@ -64,6 +51,10 @@ class _DaysOfWeekState extends State<MonthOfYearScreen> {
       });
       speakDayName(daysOfWeek[currentIndex]);
     }
+  }
+
+  Future<void> pauseFluttertts() async {
+    await flutterTts.pause();
   }
 
   @override
@@ -170,7 +161,7 @@ class _DaysOfWeekState extends State<MonthOfYearScreen> {
 
   @override
   void dispose() {
-    // TODO: implement dispose
+    pauseFluttertts();
     SystemChrome.setPreferredOrientations([
       DeviceOrientation.landscapeRight,
       DeviceOrientation.landscapeLeft,

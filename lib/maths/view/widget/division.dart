@@ -1,18 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_tts/flutter_tts.dart';
 import 'package:flutter/services.dart';
-import 'package:junior_journey/screen/multiplication.dart';
-import 'package:junior_journey/screen/next_and_back_bnt.dart';
+import 'package:junior_journey/maths/view/widget/multiplication.dart';
+import 'package:junior_journey/data/next_and_back_bnt.dart';
 
 class Devision extends StatelessWidget {
   const Devision({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
-      home: Scaffold(
-        body: RabbitCountScreen(),
-      ),
+    return const Scaffold(
+      body: RabbitCountScreen(),
     );
   }
 }
@@ -26,12 +24,12 @@ class RabbitCountScreen extends StatefulWidget {
 
 class RabbitCountScreenState extends State<RabbitCountScreen>
     with TickerProviderStateMixin {
-  final GlobalKey _columnKey = GlobalKey();
+  final GlobalKey columnKey = GlobalKey();
 
   int mangoes = 4;
   int _currentIndex = 0;
   late AnimationController _controller;
-  late Animation<double> _animation;
+  late Animation<double> animation;
   late FlutterTts flutterTts;
   bool isSpeaking = false;
   late List<String> texts1;
@@ -70,7 +68,7 @@ class RabbitCountScreenState extends State<RabbitCountScreen>
       duration: const Duration(seconds: 0),
     );
 
-    _animation = Tween<double>(begin: 0, end: 1).animate(_controller);
+    animation = Tween<double>(begin: 0, end: 1).animate(_controller);
 
     flutterTts = FlutterTts();
     flutterTts.setLanguage('en-IN');
@@ -120,8 +118,13 @@ class RabbitCountScreenState extends State<RabbitCountScreen>
     });
   }
 
+  Future<void> pauseFluttertts() async {
+    await flutterTts.pause();
+  }
+
   @override
   void dispose() {
+    pauseFluttertts();
     _controller.dispose();
     stop();
     super.dispose();
@@ -197,7 +200,6 @@ class RabbitCountScreenState extends State<RabbitCountScreen>
         _textKey = UniqueKey(); // Change the key to rebuild WidgetShowText
       }
     });
-    print("next function is called ");
   }
 
   void backFunction() {

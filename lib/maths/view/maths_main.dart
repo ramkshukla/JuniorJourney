@@ -1,33 +1,30 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:junior_journey/screen/HindiVarnamala.dart';
-import 'package:junior_journey/screen/HindiVowel.dart';
-import 'package:junior_journey/screen/number_display.dart';
-import 'package:junior_journey/screen/tables_main.dart';
-import 'package:junior_journey/screen/hindi_poems_main.dart';
+import 'package:junior_journey/maths/view/widget/addition_subtraction.dart';
+import 'package:junior_journey/maths/view/widget/division.dart';
+import 'package:junior_journey/maths/view/widget/multiplication.dart';
+import 'package:junior_journey/maths/view/widget/number_display.dart';
+import 'package:junior_journey/maths/view/widget/tables_main.dart';
 
-class HindiMain extends StatelessWidget {
-  const HindiMain({super.key});
+class MathsMain extends StatelessWidget {
+  const MathsMain({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
-      debugShowCheckedModeBanner: false,
-      home: Scaffold(
-        body: HindiMainScreen(),
-      ),
+    return const Scaffold(
+      body: MathsMainScreen(),
     );
   }
 }
 
-class HindiMainScreen extends StatefulWidget {
-  const HindiMainScreen({super.key});
+class MathsMainScreen extends StatefulWidget {
+  const MathsMainScreen({super.key});
 
   @override
-  _MathsMainScreenState createState() => _MathsMainScreenState();
+  MathsMainScreenState createState() => MathsMainScreenState();
 }
 
-class _MathsMainScreenState extends State<HindiMainScreen> {
+class MathsMainScreenState extends State<MathsMainScreen> {
   @override
   void initState() {
     super.initState();
@@ -44,13 +41,14 @@ class _MathsMainScreenState extends State<HindiMainScreen> {
     super.dispose();
   }
 
-  // final List<String> items = ['Consonant', 'Vowel'];
+  // final List<String> items = ['Numbers', 'Tables'];
   final List<String> images = [
-    'kakha_bg',
-    'aaa_bg',
     'numbers_logo',
     'tables_logo',
-    'poems_logo'
+    'addition',
+    'subtraction',
+    'multiplication',
+    'division'
   ];
 
   @override
@@ -69,7 +67,7 @@ class _MathsMainScreenState extends State<HindiMainScreen> {
         itemBuilder: (BuildContext context, int index) {
           return Center(
             child: Container(
-              margin: const EdgeInsets.only(top: 50, bottom: 50, left: 20),
+              margin: const EdgeInsets.only(top: 50, bottom: 50, left: 30),
               child: Padding(
                 padding: const EdgeInsets.all(8.0),
                 child: GestureDetector(
@@ -79,53 +77,61 @@ class _MathsMainScreenState extends State<HindiMainScreen> {
                       Navigator.push(
                         context,
                         MaterialPageRoute(
-                            builder: (context) => const HindiVarnamala()),
+                          builder: (context) => NumberDisplay(language: "en"),
+                        ),
                       );
                     } else if (index == 1) {
                       Navigator.push(
                         context,
-                        MaterialPageRoute(builder: (context) => const HindiVowel()),
+                        MaterialPageRoute(
+                          builder: (context) => const TablesMain(
+                            language: 'en',
+                          ),
+                        ),
                       );
                     } else if (index == 2) {
                       Navigator.push(
                         context,
                         MaterialPageRoute(
-                            builder: (context) => const NumberDisplay(
-                                  language: "hi",
-                                )),
+                          builder: (context) =>
+                              const AdditionAndSubtraction(operator: "Add"),
+                        ),
                       );
                     } else if (index == 3) {
                       Navigator.push(
                         context,
                         MaterialPageRoute(
-                            builder: (context) => const TablesMain(
-                                  language: 'hi',
-                                )),
+                          builder: (context) =>
+                              const AdditionAndSubtraction(operator: "Sub"),
+                        ),
                       );
                     } else if (index == 4) {
                       Navigator.push(
                         context,
                         MaterialPageRoute(
-                            builder: (context) => const HindiPoemsMain()),
+                          builder: (context) => const Multiplication(),
+                        ),
+                      );
+                    } else if (index == 5) {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => const Devision(),
+                        ),
                       );
                     }
                   },
                   child: Container(
-                    width: 250.0,
+                    width: 230.0,
                     alignment: Alignment.center,
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
                         ClipRRect(
-                          clipBehavior: Clip.hardEdge,
-                          borderRadius: const BorderRadius.all(Radius.circular(20)),
-                          child: Material(
-                            elevation: 10,
-                            shadowColor: Colors.amber,
-                            child: Image.asset(
-                              'assets/images/${images[index]}.png', // Assuming images are named as 1.jpg, 2.jpg, etc.
-                              height: 200, // Adjust height as needed
-                            ),
+                          borderRadius: BorderRadius.circular(15),
+                          child: Image.asset(
+                            'assets/images/${images[index]}.png',
+                            height: 200,
                           ),
                         ),
                       ],

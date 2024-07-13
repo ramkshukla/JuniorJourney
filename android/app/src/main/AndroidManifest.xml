@@ -1,7 +1,12 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android">
     <uses-permission android:name="android.permission.INTERNET" /> 
+    <queries>
+    <intent>
+      <action android:name="android.intent.action.TTS_SERVICE" />
+    </intent>
+    </queries>
     <application
-        android:label="junior_journey"
+        android:label="Junior Journey"
         android:name="${applicationName}"
         android:icon="@mipmap/jj_logo_img">
         <activity
@@ -22,6 +27,7 @@
                 <action android:name="android.intent.action.MAIN"/>
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
+            
         </activity>
         <meta-data
             android:name="flutterEmbedding"

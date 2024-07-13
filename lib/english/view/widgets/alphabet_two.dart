@@ -2,25 +2,14 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:audioplayers/audioplayers.dart';
 
-class AlphabetTwo extends StatelessWidget {
+class AlphabetTwo extends StatefulWidget {
   const AlphabetTwo({super.key});
 
   @override
-  Widget build(BuildContext context) {
-    return const MaterialApp(
-      home: AlphabetScreen(),
-    );
-  }
+  AlphabetTwoState createState() => AlphabetTwoState();
 }
 
-class AlphabetScreen extends StatefulWidget {
-  const AlphabetScreen({super.key});
-
-  @override
-  _AlphabetScreenState createState() => _AlphabetScreenState();
-}
-
-class _AlphabetScreenState extends State<AlphabetScreen> {
+class AlphabetTwoState extends State<AlphabetTwo> {
   final List<String> alphabets = [
     'A',
     'B',
@@ -106,10 +95,10 @@ class _AlphabetScreenState extends State<AlphabetScreen> {
     await audioPlayer.play(AssetSource(audioPath));
   }
 
-  void _stopAudio() {
-    AudioPlayer audioPlayer = AudioPlayer();
-    audioPlayer.stop();
-  }
+  // void _stopAudio() {
+  //   AudioPlayer audioPlayer = AudioPlayer();
+  //   audioPlayer.stop();
+  // }
 
   void _startAutomaticProgression() {
     // Start the automatic progression

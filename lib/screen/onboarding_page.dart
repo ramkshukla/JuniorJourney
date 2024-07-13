@@ -1,17 +1,17 @@
-import 'package:junior_journey/main_one.dart';
+import 'package:junior_journey/screen/home.dart';
 import 'package:junior_journey/screen/overboard.dart';
 import 'package:junior_journey/model/page_modal.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
-class Onboarding1Page extends StatefulWidget {
-  const Onboarding1Page({super.key});
+class OnboardingPage extends StatefulWidget {
+  const OnboardingPage({super.key});
 
   @override
-  Onboarding1PageState createState() => Onboarding1PageState();
+  OnboardingPageState createState() => OnboardingPageState();
 }
 
-class Onboarding1PageState extends State<Onboarding1Page> {
+class OnboardingPageState extends State<OnboardingPage> {
   final _pageList = [
     PageModel(
       color: const Color.fromARGB(255, 230, 233, 238),
@@ -64,19 +64,17 @@ class Onboarding1PageState extends State<Onboarding1Page> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: AnnotatedRegion<SystemUiOverlayStyle>(
-        value: const SystemUiOverlayStyle(
-            statusBarIconBrightness: Brightness.dark),
-        child: OverBoard(
-          pages: _pageList,
-          showBullets: true,
-          finishCallback: () {
-            Navigator.pushReplacement(
-              context,
-              MaterialPageRoute(builder: (context) => const HomeScreen()),
-            );
-          },
-        ),
+      body: OverBoard(
+        pages: _pageList,
+        showBullets: true,
+        finishCallback: () {
+          Navigator.pushReplacement(
+            context,
+            MaterialPageRoute(
+              builder: (context) => const HomeScreen(),
+            ),
+          );
+        },
       ),
     );
   }

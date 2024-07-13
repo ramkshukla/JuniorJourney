@@ -1,18 +1,18 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:junior_journey/screen/alphabet_one.dart';
-import 'package:junior_journey/screen/AlphabetTwo.dart';
-import 'package:junior_journey/screen/Consonents.dart';
-import 'package:junior_journey/screen/DaysOfWeek.dart';
-import 'package:junior_journey/screen/MonthsOfYear.dart';
-import 'package:junior_journey/screen/Vegetables.dart';
-import 'package:junior_journey/screen/animals.dart';
-import 'package:junior_journey/screen/flowers.dart';
-import 'package:junior_journey/screen/fruits.dart';
-import 'package:junior_journey/screen/poems_main.dart';
+import 'package:junior_journey/english/view/widgets/alphabet_one.dart';
+import 'package:junior_journey/english/view/widgets/alphabet_two.dart';
+import 'package:junior_journey/english/view/widgets/consonents.dart';
+import 'package:junior_journey/english/view/widgets/days_of_week.dart';
+import 'package:junior_journey/english/view/widgets/months_of_year.dart';
+import 'package:junior_journey/english/view/widgets/vegetables.dart';
+import 'package:junior_journey/english/view/widgets/animals.dart';
+import 'package:junior_journey/english/view/widgets/flowers.dart';
+import 'package:junior_journey/english/view/widgets/fruits.dart';
+import 'package:junior_journey/english/view/widgets/poems_main.dart';
 
-class AlphabetMain extends StatelessWidget {
-  const AlphabetMain({super.key});
+class EnglishAlphabet extends StatelessWidget {
+  const EnglishAlphabet({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -26,10 +26,10 @@ class AlphabetMainScreen extends StatefulWidget {
   const AlphabetMainScreen({super.key});
 
   @override
-  _AlphabetMainScreenState createState() => _AlphabetMainScreenState();
+  AlphabetMainScreenState createState() => AlphabetMainScreenState();
 }
 
-class _AlphabetMainScreenState extends State<AlphabetMainScreen> {
+class AlphabetMainScreenState extends State<AlphabetMainScreen> {
   @override
   void initState() {
     super.initState();
@@ -60,7 +60,8 @@ class _AlphabetMainScreenState extends State<AlphabetMainScreen> {
       decoration: const BoxDecoration(
         image: DecorationImage(
           image: AssetImage(
-              'assets/images/green_background.jpg'), // Background image path
+            'assets/images/green_background.jpg',
+          ),
           fit: BoxFit.cover,
         ),
       ),
@@ -76,52 +77,72 @@ class _AlphabetMainScreenState extends State<AlphabetMainScreen> {
                 if (index == 0) {
                   Navigator.push(
                     context,
-                    MaterialPageRoute(builder: (context) => const AlphabetTwo()),
+                    MaterialPageRoute(
+                      builder: (context) => const AlphabetTwo(),
+                    ),
                   );
                 } else if (index == 1) {
                   Navigator.push(
                     context,
-                    MaterialPageRoute(builder: (context) => const AlphabetOne()),
+                    MaterialPageRoute(
+                      builder: (context) => const AlphabetOne(),
+                    ),
                   );
                 } else if (index == 2) {
                   Navigator.push(
                     context,
-                    MaterialPageRoute(builder: (context) => const Consonents()),
+                    MaterialPageRoute(
+                      builder: (context) => const Consonents(),
+                    ),
                   );
                 } else if (index == 3) {
                   Navigator.push(
                     context,
-                    MaterialPageRoute(builder: (context) => const DaysOfWeek()),
+                    MaterialPageRoute(
+                      builder: (context) => const DaysOfWeek(),
+                    ),
                   );
                 } else if (index == 4) {
                   Navigator.push(
                     context,
-                    MaterialPageRoute(builder: (context) => const MonthOfYear()),
+                    MaterialPageRoute(
+                      builder: (context) => const MonthOfYear(),
+                    ),
                   );
                 } else if (index == 5) {
                   Navigator.push(
                     context,
-                    MaterialPageRoute(builder: (context) => const VegetableSlider()),
+                    MaterialPageRoute(
+                      builder: (context) => const VegetableSlider(),
+                    ),
                   );
                 } else if (index == 6) {
                   Navigator.push(
                     context,
-                    MaterialPageRoute(builder: (context) => const AnimaleSlider()),
+                    MaterialPageRoute(
+                      builder: (context) => const AnimaleSlider(),
+                    ),
                   );
                 } else if (index == 7) {
                   Navigator.push(
                     context,
-                    MaterialPageRoute(builder: (context) => const FruitSlider()),
+                    MaterialPageRoute(
+                      builder: (context) => const FruitSlider(),
+                    ),
                   );
                 } else if (index == 8) {
                   Navigator.push(
                     context,
-                    MaterialPageRoute(builder: (context) => const FlowersSlider()),
+                    MaterialPageRoute(
+                      builder: (context) => const FlowersSlider(),
+                    ),
                   );
                 } else if (index == 9) {
                   Navigator.push(
                     context,
-                    MaterialPageRoute(builder: (context) => const PoemsMain()),
+                    MaterialPageRoute(
+                      builder: (context) => const PoemsMain(),
+                    ),
                   );
                 }
               },
@@ -133,8 +154,8 @@ class _AlphabetMainScreenState extends State<AlphabetMainScreen> {
                     child: Material(
                       elevation: 10,
                       child: Image.asset(
-                        'assets/images/${images[index]}.png', // Assuming images are named as 1.jpg, 2.jpg, etc.
-                        height: 210, // Adjust height as needed
+                        'assets/images/${images[index]}.png',
+                        height: 210,
                       ),
                     ),
                   ),
